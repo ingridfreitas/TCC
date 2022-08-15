@@ -1,0 +1,105 @@
+.barra1 {
+    width: 100%;
+    height: 12px;
+    background-color: #04ad76;
+}
+
+.barra2 {
+    width: 100%;
+    height: 23px;
+    background-color: #0df6a9;
+}
+
+.ativo{
+    color: #04ad76;
+}
+
+.nav {
+    height: 75px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.img-logo {
+    height: 95%;
+    width: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h1 {
+    color: #000;
+    font-family: "blippo", fantasy;
+    letter-spacing: 0.2px;
+    margin-left: 15px;
+    font-size: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+li {
+    font-size: 25px;
+    color: #545454;
+    font-family: "blippo", fantasy;
+    display: inline-block;
+    padding-left: 55px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav-list {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.nav {
+    justify-content: center;
+}
+
+li:first-child {
+    padding-left: 80px;
+}
+
+i{
+    display: none;
+}
+
+@media(max-width: 600px) and (min-width: 200px){
+    .nav-list{
+        display: none;
+    }
+
+    .img-logo{
+        height: 60%;
+        text-align: left;
+    }
+
+    h1{
+        font-size: 35px;
+        margin-left: 5px;
+        padding-right: 45px;
+    }
+
+    i{
+        display: block;
+        font-size: 35px;
+        margin-top: auto;
+        margin-bottom: auto;
+        float: right;
+    }
+
+}

@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-4">
+        <div class="row bloco-grid">
+            <div class="col-6">
+                <img src="../../assets/grid.png" alt="" class="grid">
+            </div>
+            <div class="col-6">
+                <div class="card-grid">
+                    <p class="typing-animation">Bem-Vindo ao Graduei! Eu sou o Grid, e aqui você irá encontrar faculdades próximas que forneçam o curso que você deseja, além de ter acesso a informações de diversas universidades e formações. E com uma ajudinha a mais, disponibilizamos
+                        alguns links de testes vocacionais! </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="../../assets/mapa.png" alt="" class="mapa">
+    </div>
+    <div class="col-4">
+        <div class="acc">
+            <select id="curso" class="form-control">
+                <option selected>Curso</option>
+                <option value="med">Medicina</option>
+                <option value="vet">Medicina Veterinária</option>
+                <option value="cont">Contabilidade</option>
+                <option value="adm">Administração</option>
+            </select>
+
+            <select id="instituicao" class="form-control">
+                <option selected>Instituição</option>
+                <option value="pub">Pública</option>
+                <option value="part">Particular</option>
+                <option value="all">Ambas</option>
+            </select>
+
+            <select id="estado" class="form-control">
+                <option selected>Estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+
+            <select id="cidades" class="form-control">
+                <option selected>Cidade Central</option>
+                <option value="bauru">Bauru</option>
+                <option value="botucatu">Botucatu</option>
+                <option value="lençóis">Lençóis Paulista</option>
+            </select>
+        </div>
+        <!--div class="range">
+            <div class="sliderValue">
+                <span>100</span>
+            </div>
+            <div class="field">
+                <div class="value left">0</div>
+                <input type="range" min="0" max="200" steps="1" value="100" id="slider">
+                <div class="value right">200</div>
+            </div>
+        </div-->
+
+        <div class="bslider">
+            <span class="left sli">0</span>
+            <mat-slider thumbLabel [displayWith]="formatLabel" step="1" min="0" max="200" class="slider"></mat-slider>
+            <span class="right sli">200</span>
+        </div>
+
+        <button class="btn" (click)="buscas()">BUSCAR <i class="las la-search"></i></button>
+
+        <!--<script>
+
+        const slide = document.querySelector("span");
+        const input = document.querySelector("input");
+        input.oninput = (() => {
+            let value = input.value;
+            slide.textContent = value;
+            slide.style.left = (value / 2) + "%";
+            slide.classList.add("show");
+        });
+        inputSlider.onblur = (() => {
+            slide.classList.remove("show");
+        });
+    </script>-->
+
+    </div>
+
+</div>
+
+<app-footer-home></app-footer-home>

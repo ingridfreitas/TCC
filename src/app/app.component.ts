@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tcc';
+
+  opened = true
+
+  constructor() {
+  }
+
+  abrir(){
+    this.opened =! this.opened;
+  }
 }

@@ -70,16 +70,6 @@
                 <option value="lençóis">Lençóis Paulista</option>
             </select>
         </div>
-        <!--div class="range">
-            <div class="sliderValue">
-                <span>100</span>
-            </div>
-            <div class="field">
-                <div class="value left">0</div>
-                <input type="range" min="0" max="200" steps="1" value="100" id="slider">
-                <div class="value right">200</div>
-            </div>
-        </div-->
 
         <div class="bslider">
             <span class="left sli">0</span>
@@ -89,23 +79,26 @@
 
         <button class="btn" (click)="buscas()">BUSCAR <i class="las la-search"></i></button>
 
-        <!--<script>
-
-        const slide = document.querySelector("span");
-        const input = document.querySelector("input");
-        input.oninput = (() => {
-            let value = input.value;
-            slide.textContent = value;
-            slide.style.left = (value / 2) + "%";
-            slide.classList.add("show");
-        });
-        inputSlider.onblur = (() => {
-            slide.classList.remove("show");
-        });
-    </script>-->
-
     </div>
 
 </div>
-
-<app-footer-home></app-footer-home>
+<div class="row imagens">
+    <div class="col-2">
+        <img src="../../assets/prof/vet.png" alt="">
+    </div>
+    <div class="col-2">
+        <img src="../../assets/prof/qui.png" alt="">
+    </div>
+    <div class="col-2">
+        <img src="../../assets/prof/prof.png" alt="">
+    </div>
+    <div class="col-2">
+        <img src="../../assets/prof/med.png" alt="">
+    </div>
+    <div class="col-2">
+        <img src="../../assets/prof/del.png" alt="">
+    </div>
+    <div class="col-2">
+        <img src="../../assets/prof/cul.png" alt="">
+    </div>
+</div>

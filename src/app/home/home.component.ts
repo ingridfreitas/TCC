@@ -95,5 +95,10 @@ export class HomeComponent implements OnInit {
       return value;
     }
   }
+  opened = false
+
+  abrir(){
+    this.opened =! this.opened;
+  }
 
 }

@@ -1,17 +1,19 @@
-<div class="barra1"></div>
-<div class="barra2"></div>
-<div class="nav">
-    <img class="img-logo" src="../../assets/logo.jpg" alt="">
-    <h1 [routerLink]="['']">GRADUEI</h1>
+<div class="container-nav">
+    <div class="barra1"></div>
+    <div class="barra2"></div>
+    <div class="nav">
+        <img class="img-logo" src="../../assets/logo.jpg" alt="">
+        <h1 [routerLink]="['']">GRADUEI</h1>
 
-    <i class="las la-bars"></i>
-    <div class="nav-list">
-        <ul>
-            <li routerLinkActive="ativo" [routerLink]="['cursos']">Cursos</li>
-            <li routerLinkActive="ativo" [routerLink]="['inst']">Instituições</li>
-            <li>Testes</li>
-            <li>Sobre</li>
-        </ul>
+        <!--i class="las la-bars" mat-button (click)="drawer.toggle()"></i-->
+        <div class="nav-list">
+            <ul>
+                <li class="nn" [routerLinkActive]="['ativo']" [routerLink]="['cursos']">Cursos</li>
+                <li class="nn" routerLinkActive="ativo" [routerLink]="['inst']">Instituições</li>
+                <li class="nn" routerLinkActive="ativo" [routerLink]="['testes']">Testes</li>
+                <li class="nn" routerLinkActive="ativo" [routerLink]="['sobre']">Sobre</li>
+            </ul>
+        </div>
     </div>
+    <div class="barra1"></div>
 </div>
-<div class="barra1"></div>

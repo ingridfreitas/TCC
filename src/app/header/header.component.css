@@ -56,6 +56,15 @@ li {
     cursor: pointer;
 }
 
+.snav {
+    font-size: 25px;
+    color: #545454;
+    font-family: "blippo", fantasy;
+    padding-left: 55px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 .nav-list {
     margin-top: auto;
     margin-bottom: auto;
@@ -70,12 +79,13 @@ ul {
     justify-content: center;
 }
 
+
 li:first-child {
     padding-left: 80px;
 }
 
-i{
-    display: none;
+.container-nav{
+    z-index: 1;
 }
 
 @media(max-width: 600px) and (min-width: 200px){
@@ -94,12 +104,8 @@ i{
         padding-right: 45px;
     }
 
-    i{
-        display: block;
-        font-size: 35px;
-        margin-top: auto;
-        margin-bottom: auto;
-        float: right;
+    .nav:first-child{
+        background-color: blueviolet;
     }
 
 }

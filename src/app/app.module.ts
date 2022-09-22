@@ -13,7 +13,16 @@ import { CursosComponent } from './cursos/cursos.component';
 import { FooterComponent } from './footer/footer.component';
 import { InstituicoesComponent } from './instituicoes/instituicoes.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { FooterHomeComponent } from './footer-home/footer-home.component';
+import { TestesComponent } from './testes/testes.component';
+import { AboutComponent } from './about/about.component';
+import { SidebarModule } from 'ng-sidebar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +33,8 @@ import { FooterHomeComponent } from './footer-home/footer-home.component';
     CursosComponent,
     FooterComponent,
     InstituicoesComponent,
-    FooterHomeComponent
+    TestesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +42,13 @@ import { FooterHomeComponent } from './footer-home/footer-home.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    SidebarModule.forRoot(),
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

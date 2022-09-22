@@ -1,0 +1,55 @@
+.grid {
+    margin-top: 10rem;
+    margin-left: 150px;
+}
+
+.txt {
+    max-width: 70%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 7rem;
+}
+
+p {
+    font-family: cursive;
+    font-size: 22px;
+    line-height: 2em;
+}
+
+p:last-child {
+    margin-top: 1.2rem;
+}
+
+@media(max-width: 600px) and (min-width: 200px) {
+    .col-6 {
+        min-width: 100%;
+        margin-top: 5px;
+    }
+
+    .grid {
+        margin-top: -50px;
+        height: 200px;
+        width: auto;
+        margin-left: -48px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .txt {
+        min-width: 80%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 0;
+    }
+
+    p {
+        font-size: 14px;
+        min-width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+}

@@ -34,3 +34,9 @@ strong {
     bottom: 0;
     width: 100%;
 }
+
+@media(max-width: 600px) and (min-width: 200px) {
+    .menu{
+        display: none;
+    }
+}

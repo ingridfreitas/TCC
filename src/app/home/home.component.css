@@ -4,22 +4,8 @@
     margin: 0;
 }
 
-.col-6 {
-    width: 100 / 2%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
 .col-4 {
     width: 100 / 3%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-.col-2 {
-    width: 100 / 6%;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -63,7 +49,7 @@ p {
     margin: 0;
     font-size: 17px;
     color: #545454;
-    font-family: "blippo", fantasy;
+    font-family: "Poppins", sans-serif;
     overflow: hidden;
 }
 
@@ -116,6 +102,11 @@ p {
     width: 75%;
 }
 
+select {
+    text-align: center;
+    justify-content: center;
+}
+
 img {
     width: 100%;
     height: 200px;
@@ -141,9 +132,9 @@ img {
     }
 
     p {
+        line-height: 2rem;
         font-size: 14px;
-        max-width: 90%;
-        font-family: 'Poppins', sans-serif;
+        font-family: "blippo", fantasy;
     }
 
     .bloco-grid {
@@ -175,7 +166,7 @@ img {
 }
 
 @media(max-width: 954px) and (min-width: 604px) {
-    
+
     .imagens,
     .mapa {
         display: none;
@@ -186,20 +177,20 @@ img {
         min-width: 100%;
     }
 
-    .col-6{
-        max-width: 50%;
+    .col-6 {
+        width: 100 / 2%;
     }
 
     .card-grid {
-        width: 127%;
-        margin-top: 0;
+        width: 100%;
+        margin-top: 1rem;
         margin-left: -61px;
     }
 
     p {
-        font-size: 14px;
-        max-width: 90%;
-        font-family: 'Poppins', sans-serif;
+        line-height: 2rem;
+        font-size: 22px;
+        font-family: "blippo", fantasy;
     }
 
     .bloco-grid {
@@ -208,24 +199,98 @@ img {
 
     .grid {
         margin-top: 0px;
-        height: 140px;
+        height: 250px;
         width: auto;
         margin-left: -48px;
     }
 
-    .acc {
+}
+
+@media(max-width: 1200px) and (min-width: 955px) {
+
+    .cont{
+        margin-top: 3rem;
+        align-items: center;
+    }
+
+    .mapa {
+        display: none;
+    }
+
+    .col-6 {
+        width: 100 / 2%;
+    }
+
+    .card-grid {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: 1rem;
+        margin-left: -61px;
     }
 
-    .form-control {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+    p {
+        line-height: 2rem;
+        font-size: 22px;
+        font-family: "blippo", fantasy;
     }
 
-    .slider {
-        width: 85%;
+    .bloco-grid {
+        margin-top: 0px;
+        width: 170%;
+        margin-top: auto;
+        margin-bottom: auto;
     }
+
+    .grid {
+        margin-top: 0px;
+        height: 250px;
+        width: auto;
+        margin-left: -48px;
+    }
+
+    .imagens{
+        height: auto;
+        margin-top: 2rem;
+    }
+
+}
+
+
+@media(max-width: 2000px) and (min-width: 1200px) {
+
+    .cont{
+        margin-top: 1rem;
+        align-items: center;
+    }
+
+    .col-6 {
+        width: 100 / 2%;
+    }
+
+    .card-grid {
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: -61px;
+    }
+
+    p {
+        line-height: 2rem;
+        font-size: 22px;
+        font-family: "blippo", fantasy;
+    }
+
+    .bloco-grid {
+        margin-top: 0px;
+        width: 110%;
+        margin-top: auto;
+        margin-bottom: auto;
+        align-items: center;
+    }
+
+    .grid {
+        margin-top: 0px;
+        height: 250px;
+        width: auto;
+        margin-left: -48px;
+    }
+
 }

@@ -15,7 +15,7 @@
     margin: 0;
 }
 
-img {
+.grid {
     width: 100px;
 }
 
@@ -29,14 +29,48 @@ strong {
 }
 
 .menu {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom:0;
+    left:0;
 }
 
 @media(max-width: 600px) and (min-width: 200px) {
     .menu{
         display: none;
     }
+}
+
+
+.col-2 {
+    width: 100 / 6%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+@media(max-width: 954px) and (min-width: 200px) {
+
+    .imagens,
+    .mapa {
+        display: none;
+    }
+
+}
+
+@media(max-width: 1200px) and (min-width: 955px) {
+
+    .imagens{
+        height: auto;
+        margin-top: 2rem;
+    }
+
 }

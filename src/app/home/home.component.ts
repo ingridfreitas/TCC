@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cursos } from '../core/model';
+import { GradueiService } from '../services/graduei.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  cursos: Cursos[] = [];
 
   aparece: boolean = false;
   dados: any = []
@@ -16,11 +21,14 @@ export class HomeComponent implements OnInit {
     mapa?.classList.add("nada");
   }
   
-  constructor() { }
+  constructor(private cursoService: GradueiService) {
+    
+   }
 
   ngOnInit(): void {
-
-
+    this.cursoService.listarCursos().subscribe(cursosRet => {
+      this.cursos = cursosRet
+    })
   }
 
   formatLabel(value: number) {

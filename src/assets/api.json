@@ -1,0 +1,33 @@
+[
+{
+        "id": 1,
+        "duracao": "8 semestres",
+        "descricao": "O curso de administração geralmente é encontrado em nível de bacharel, onde são formados profissionais capazes de gerenciar recursos e materiais, financeiros e humanos de uma empresa ou instituição.",
+        "nomeCurso": "Administração"
+    },
+    {
+        "id": 2,
+        "duracao": "8 semestres",
+        "descricao": "Um profissional em administração púclica é capaz de gerenciar recursos materiais, econômicos e humanos relacionados a estrutura política, jurídica e histórica do poder público.",
+        "nomeCurso": "Administração Pública"
+    },
+    {
+        "id": 3,
+        "duracao": "10 semestres",
+        "descricao": "O aluno de agronomia aprende a prática e a teoria relacionada a produção agrícola, sabendo dominar recursos naturais e o caminhar da agroindústria.",
+        "nomeCurso": "Agronomia"
+    },
+    {
+        "id": 4,
+        "duracao": "10 semestres",
+        "descricao": "Forma um profissional capaz de projetar, desenhar, organizar e criar espaços de construção, também sabendo atuar em preservação, restauração e conservação de estruturas existentes.",
+        "nomeCurso": "Arquitetura e Urbanismo"
+    },
+    {
+        "id": 5,
+        "duracao": "8 semestres",
+        "descricao": "O arquivista é o profissional capacitado para gestão, presevação e restauração de documentos, como fotos, vídeos, textos históricos e registros. ",
+        "nomeCurso": "Arquivologia"
+    }
+
+]

@@ -28,7 +28,7 @@
     margin: 0;
     width: 110%;
     height: auto;
-    margin-top: 40%;
+    margin-top: 39%;
 }
 
 p {
@@ -43,7 +43,7 @@ p {
 
 .card-grid {
     width: 85%;
-    margin-top: 20em;
+    margin-top: 22em;
 }
 
 .bloco-grid {
@@ -51,17 +51,23 @@ p {
 }
 
 .ca {
-    background-color: cadetblue;
-    height: 180px;
+    border: cadetblue 2px solid;
+    height: 50%;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
     margin: 1.2rem;
 }
 
 .ca:first-child{
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
+
+img{
+    width: 90%;
+    height: 90%;
+    margin-top: 15px;
+    margin-bottom: auto;
+}
+
 
 @media(max-width: 600px) and (min-width: 200px) {
     .met, .let {

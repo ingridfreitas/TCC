@@ -22,6 +22,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 
 
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     InstituicoesComponent,
     TestesComponent,
-    AboutComponent
+    AboutComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,

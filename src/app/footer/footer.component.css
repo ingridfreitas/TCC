@@ -36,6 +36,12 @@ footer {
     position: fixed;
     bottom:0;
     left:0;
+
+}
+
+.imagens{
+    margin-top: 10rem;
+
 }
 
 @media(max-width: 600px) and (min-width: 200px) {

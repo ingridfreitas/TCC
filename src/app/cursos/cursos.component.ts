@@ -21,9 +21,9 @@ export class CursosComponent implements OnInit {
     })
   }
 
-  toDisplay = false;
+  //toDisplay = false;
 
-  abrirInfo() {
+  /*abrirInfo() {
     var flecha = document.querySelector('.gr');
     if (this.toDisplay = !this.toDisplay) {
       flecha?.classList.add('flecha')
@@ -33,6 +33,6 @@ export class CursosComponent implements OnInit {
       flecha?.classList.add('sflecha')
 
     }
-  }
+  }*/
 
 }

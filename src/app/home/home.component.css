@@ -12,7 +12,7 @@
 }
 
 .mapa {
-    margin-top: -20px;
+    margin-top: -50px;
     width: 78%;
     height: auto;
     text-align: center;
@@ -41,7 +41,7 @@
 }
 
 .form-control:first-child {
-    margin-top: 10%;
+    margin-top: -50px;
 }
 
 p {
@@ -55,7 +55,7 @@ p {
 
 .card-grid {
     width: 85%;
-    margin-top: 140px;
+    margin-top: 1rem;
 }
 
 .bloco-grid {
@@ -81,6 +81,7 @@ p {
     background-color: #04ad76;
     color: #fff;
     height: 40px;
+
 }
 
 .bslider {

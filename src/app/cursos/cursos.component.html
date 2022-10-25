@@ -3,7 +3,9 @@
     <div class="row">
         <div class="col-2 " *ngFor="let cursos of cursos">
             <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
+                <div class="b">
+                    <img [src]="cursos.imgPath" alt="">
+                </div>
                 <h3 class="name">{{cursos.nomeCurso}}</h3>
                 <p class="dur">{{cursos.duracao}}
                     <!--i class="las la-angle-right gr"></i-->
@@ -11,71 +13,6 @@
                 <p class="info">{{cursos.descricao}}</p>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-        <div class="col-2 ">
-            <div id="desc" class="card desc drax" value="0">
-                <div class="b"></div>
-                <h3 class="name">CURSO NOME</h3>
-                <p class="dur">2min
-                    <!--i class="las la-angle-right gr"></i-->
-                </p>
-                <p class="info">Esse é apenas um card de teste de visualição, portanto não há qualquer dado de fato nesse bagulho hdhdhhjuoshgbsiygs</p>
-            </div>
-        </div>
-
     </div>
     <div class="espaco"></div>
 </div>

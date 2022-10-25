@@ -1,60 +1,11 @@
 <div class="cardz">
     <div class="row he">
-        <div class="col-2">
-            <img src="../../assets/logo/unip.png" alt="">
-            <div mat-raised-button matTooltip="Universidade Paulista" matTooltipPosition="below" class="ponto"></div>
-        </div>
-        <div class="col-2">
-            <img mat-raised-button src="../../assets/logo/faef.png" alt="">
-            <div mat-raised-button matTooltip="Faculdade de Ensino Superior e Formação Integral" matTooltipPosition="below" class="ponto"></div>
-        </div>
-        <div class="col-2">
-            <img src="../../assets/logo/anhanguera.png" alt="">
-            <div mat-raised-button matTooltip="Anhanguera" matTooltipPosition="below" class="ponto"></div>
-        </div>
-        <div class="col-2">
-            <img src="../../assets/logo/unesp.png" alt="">    
-            <div mat-raised-button matTooltip="Universidade Estadual Paulista" matTooltipPosition="below" class="ponto"></div>
-        </div>
-        <div class="col-2">
-            <img src="../../assets/logo/uninove.png" alt="">
-            <div mat-raised-button matTooltip="Universidade Nove de Julho" matTooltipPosition="below" class="ponto"></div>
-        </div>
-        <div class="col-2">
-            <img src="../../assets/logo/unisagrado.png" alt="">
-            <div mat-raised-button matTooltip="Unisagrado" matTooltipPosition="below" class="ponto"></div>
-        </div>
-    </div>
-    <div class="row final">
-        <div class="col-2">
-            <div class="b">
-
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="b">
-                
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="b">
-                
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="b">
-                
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="b">
-                
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="b">
-                
-            </div>
+        <div class="col-2" *ngFor="let u of unis">
+            <a [href]="u.link" target="_blank">
+                <img [src]="u.img" alt="">
+                <div mat-raised-button [matTooltip]="u.nome_universidade" matTooltipPosition="below" class="ponto">
+                </div>
+            </a>
         </div>
     </div>
 </div>

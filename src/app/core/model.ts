@@ -3,4 +3,33 @@ export interface Cursos{
     duracao: string;
     descricao: string;
     nomeCurso: string
+    imgPath: string
+}
+
+export interface Estados{
+    id: number,
+    nomeEstado: string,
+    sigla: string
+}
+
+export interface Cidades{
+    id: number,
+    nomeCidade: string
+}
+
+export interface Universidades{
+    id: number,
+    nome_universidade: string,
+    sigla: string,
+    categoria: string,
+    img: string,
+    link: string
+}
+
+export interface CatUni{
+    id: number,
+    nome_universidade: string,
+    sigla: string,
+    categoria: string,
+    img: string
 }

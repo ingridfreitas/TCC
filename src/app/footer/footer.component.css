@@ -39,11 +39,6 @@ footer {
 
 }
 
-.imagens{
-    margin-top: 10rem;
-
-}
-
 @media(max-width: 600px) and (min-width: 200px) {
     .menu{
         display: none;

@@ -23,7 +23,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultadosComponent } from './resultados/resultados.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -52,6 +52,8 @@ import { ResultadosComponent } from './resultados/resultados.component';
     MatListModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

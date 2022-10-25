@@ -1,3 +1,4 @@
+
 .pesquisa{
     width: 20%;
     border-right: 2px solid cadetblue;
@@ -9,7 +10,11 @@
 }
 
 mat-drawer-container{
-    height: 100%;
+    height: calc(205vh - 115vh);
+}
+
+mat-drawer{
+    text-align: center;
 }
 
 .card{
@@ -60,4 +65,54 @@ p{
 
 .las{
     margin-right: 4px;
+}
+
+img{
+    height: 150px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-control {
+    border: 5px double #545454;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #545454;
+    font-family: "blippo", fantasy;
+    text-align: center;
+    width: 90%;
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    font-weight: bold;
+    width: 60%;
+    background-color: #04ad76;
+    color: #fff;
+    height: 40px;
+
+}
+
+.bslider {
+    margin: 0;
+    padding: 0;
+    padding-top: 18px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sli {
+    color: #04ad76;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.slider {
+    width: 75%;
 }

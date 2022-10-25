@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Cursos } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
 
@@ -10,15 +11,15 @@ import { GradueiService } from '../services/graduei.service';
 export class CursosComponent implements OnInit {
 
   cursos: Cursos[] = [];
+
   
-  constructor(private cursoService: GradueiService) {
-    
+  constructor(private gradueiService: GradueiService) {
    }
 
   ngOnInit(): void {
-    this.cursoService.listarCursos().subscribe(cursosRet => {
+    this.gradueiService.listarCursos().subscribe(cursosRet => {
       this.cursos = cursosRet
-    })
+    });
   }
 
   //toDisplay = false;

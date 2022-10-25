@@ -43,7 +43,9 @@
 .form-control:first-child {
     margin-top: -50px;
 }
-
+option{
+    color: #545454;
+}
 p {
     padding: 0;
     margin: 0;

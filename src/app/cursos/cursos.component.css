@@ -55,6 +55,11 @@ i{
     margin-top: 3rem;
 }
 
+img{
+    height: 180px;
+    width: 100%;
+}
+
 @media(max-width: 600px) and (min-width: 200px) {
     .col-2 {
         min-width: 50%;

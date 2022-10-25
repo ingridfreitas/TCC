@@ -31,40 +31,12 @@
 
             <select id="estado" class="form-control">
                 <option selected>Estado</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
+                <option *ngFor="let estados of estados">{{estados.nomeEstado}}</option>
             </select>
 
             <select id="cidades" class="form-control">
                 <option selected>Cidade Central</option>
-                <option value="bauru">Bauru</option>
-                <option value="botucatu">Botucatu</option>
-                <option value="lençóis">Lençóis Paulista</option>
+                <option *ngFor="let cidades of cidades">{{cidades.nomeCidade}}</option>
             </select>
         </div>
 
@@ -74,8 +46,7 @@
             <span class="right sli">200</span>
         </div>
 
-        <button class="btn" (click)="buscas()">BUSCAR <i class="las la-search"></i></button>
-
+        <button class="btn" [routerLink]="['/resultados']">BUSCAR <i class="las la-search"></i></button>
     </div>
 
 </div>

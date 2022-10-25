@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cursos } from '../core/model';
+import { Cidades, Cursos, Estados, Universidades } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
 
 @Component({
@@ -11,23 +11,40 @@ import { GradueiService } from '../services/graduei.service';
 export class HomeComponent implements OnInit {
 
   cursos: Cursos[] = [];
+  estados: Estados[] = []
+  cidades: Cidades[] = [];
+  universidades: Universidades[] = [];
+
 
   aparece: boolean = false;
   dados: any = []
   lugar: string | undefined;
 
-  buscas(){
+  buscas() {
     var mapa = document.querySelector(".mapa");
     mapa?.classList.add("nada");
   }
-  
-  constructor(private cursoService: GradueiService) {
-    
-   }
+
+  constructor(private gradueiService: GradueiService) {
+
+  }
 
   ngOnInit(): void {
-    this.cursoService.listarCursos().subscribe(cursosRet => {
+    this.gradueiService.listarCursos().subscribe(cursosRet => {
       this.cursos = cursosRet
+    });
+
+    this.gradueiService.listarEstados().subscribe(estRet => {
+      this.estados = estRet
+    });
+
+    this.gradueiService.listarCidades().subscribe(estCity => {
+      this.cidades = estCity
+    });
+
+    this.gradueiService.listarUnis().subscribe(unisRet => {
+      this.universidades = unisRet
+      console.log(unisRet)
     })
   }
 
@@ -105,8 +122,8 @@ export class HomeComponent implements OnInit {
   }
   opened = false
 
-  abrir(){
-    this.opened =! this.opened;
+  abrir() {
+    this.opened = !this.opened;
   }
 
 }

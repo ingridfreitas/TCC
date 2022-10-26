@@ -8,7 +8,7 @@ export interface Cursos{
 
 export interface Estados{
     id: number,
-    nomeEstado: string,
+    nome_estado: string,
     sigla: string
 }
 

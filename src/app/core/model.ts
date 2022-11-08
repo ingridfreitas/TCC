@@ -14,7 +14,7 @@ export interface Estados{
 
 export interface Cidades{
     id: number,
-    nomeCidade: string
+    nome_cidade: string
 }
 
 export interface Universidades{

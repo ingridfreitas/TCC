@@ -12,6 +12,8 @@ export class GradueiService {
   private readonly CITY = 'http://localhost:8080/cidades/todos'
   private readonly UNI = 'http://localhost:8080/universidades/todos'
   private readonly UniCat = 'http://localhost:8080/universidades/categoria'
+  private readonly CidEst = 'http://localhost:8080/cidades/estados'
+
 
 
   constructor(private http: HttpClient) { }
@@ -34,5 +36,9 @@ export class GradueiService {
 
   buscarCategoria(categoria: string){
     return this.http.get<CatUni[]>(`${this.UniCat}?categoria=${categoria}`)
+  }
+
+  buscarEstado(nome_estado: string){
+    return this.http.get<Cidades[]>(`${this.CidEst}?nome_estado=${nome_estado}`)
   }
 }

@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   estados: Estados[] = []
   cidades: Cidades[] = [];
   universidades: Universidades[] = [];
-
+  est: string = 'Estado';
+  cityEst: Cidades[] = [];
 
   aparece: boolean = false;
   dados: any = []
@@ -44,7 +45,18 @@ export class HomeComponent implements OnInit {
 
     this.gradueiService.listarUnis().subscribe(unisRet => {
       this.universidades = unisRet
-      console.log(unisRet)
+    });
+
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+      this.cityEst = catRet
+      console.log(catRet)
+    })
+  }
+
+  aparecer(){
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+      this.cityEst = catRet
+      console.log(catRet)
     })
   }
 
@@ -106,17 +118,14 @@ export class HomeComponent implements OnInit {
 
           resu?.classList.remove("drax")
           inex?.classList.add("drax")
-          console.log(valores)
 
           this.lugar = valores;
-          console.log(this.lugar)
         }
         else {
           resu?.classList.add("drax")
           inex?.classList.remove("drax")
         }
       };
-      console.log(this.lugar)
       return value;
     }
   }

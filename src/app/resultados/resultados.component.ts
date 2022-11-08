@@ -14,7 +14,11 @@ export class ResultadosComponent implements OnInit {
   cidades: Cidades[] = [];
   universidades: Universidades[] = [];
   vf: string = 'Categoria';
+  est: string = 'Estado';
+
   catUni: CatUni[] = [];
+  cityEst: Cidades[] = [];
+
 
   lugar: string | undefined;
 
@@ -43,11 +47,25 @@ export class ResultadosComponent implements OnInit {
 
   enviar(){
     console.log(this.vf)
+    console.log(this.est)
+
     this.gradueiService.buscarCategoria(this.vf).subscribe(catRet =>{
       this.catUni = catRet
       console.log(catRet)
     })
 
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+      this.cityEst = catRet
+      console.log(catRet)
+    })
+
+  }
+
+  aparecer(){
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+      this.cityEst = catRet
+      console.log(catRet)
+    })
   }
 
   formatLabel(value: number) {

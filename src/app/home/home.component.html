@@ -6,8 +6,11 @@
             </div>
             <div class="col-6">
                 <div class="card-grid">
-                    <p class="typing-animation">Bem-Vindo ao Graduei! Eu sou o Grid, e aqui você irá encontrar faculdades próximas que forneçam o curso que você deseja, além de ter acesso a informações de diversas universidades e formações. E com uma ajudinha a mais, disponibilizamos
-                        alguns links de testes vocacionais! </p>
+                    <!--p class="typing-animation">Bem-Vindo ao Graduei! Eu sou o Grid, e aqui você irá encontrar faculdades próximas que forneçam o curso que você deseja, além de ter acesso a informações de diversas universidades e formações. E com uma ajudinha a mais, disponibilizamos
+                        alguns links de testes vocacionais! </p-->
+                    <p class="typing-animation">Olá! Eu sou o Grid, e aqui você irá encontrar
+                        faculdades próximas que forneçam o curso que você deseja, e com uma ajudinha a mais, disponibilizamos
+                        alguns testes vocacionais! </p>
                 </div>
             </div>
         </div>
@@ -29,14 +32,14 @@
                 <option value="all">Ambas</option>
             </select>
 
-            <select id="estado" class="form-control">
+            <select id="estado" class="form-control" [(ngModel)]="est">
                 <option selected>Estado</option>
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <select id="cidades" class="form-control">
+            <select id="cidades" class="form-control" (click)="aparecer()">
                 <option selected>Cidade Central</option>
-                <option *ngFor="let cidades of cidades">{{cidades.nomeCidade}}</option>
+                <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
             </select>
         </div>
 

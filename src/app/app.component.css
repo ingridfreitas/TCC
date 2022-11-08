@@ -51,8 +51,23 @@ mat-sidenav-content{
         display: block;
     }
 
+    .btn{
+        opacity: 1;
+    }
+
     i{
         font-size: 2rem;
         font-weight: bold;
+        color: #000;
     }
+
+    .capi{
+        height: 170px;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        filter: drop-shadow(5px 8px 13px #222);
+    }
+
+    
 }

@@ -1,10 +1,10 @@
 <div class="cardzc">
 
     <div class="row">
-        <div class="col-2 " *ngFor="let cursos of cursos">
+        <div class="col-2 cs" *ngFor="let cursos of cursos">
             <div id="desc" class="card desc drax" value="0">
                 <div class="b">
-                    <img [src]="cursos.imgPath" alt="">
+                    <img [src]="cursos.imgPath" alt="" class="dem">
                 </div>
                 <h3 class="name">{{cursos.nomeCurso}}</h3>
                 <p class="dur">{{cursos.duracao}}

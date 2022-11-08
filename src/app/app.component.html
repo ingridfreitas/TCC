@@ -8,13 +8,12 @@
 <mat-sidenav-container>
     <mat-sidenav #snav class="sidenav">
         <div class="barra1">
-            <button class="btn" mat-icon-button (click)="snav.toggle()">
-                <i class="las la-bars"></i>
-            </button>
+            <button mat-fab>
+                <mat-icon>menu</mat-icon>
+              </button>
         </div>
         <div class="barra2"></div>
         <div class="nav">
-            <!--i class="las la-bars" mat-button (click)="drawer.toggle()"></i-->
             <div class="nav-list">
                 <ul>
                     <li class="snav" routerLinkActive="ativo" [routerLink]="['']">Home</li>
@@ -24,7 +23,7 @@
                     <li class="snav" routerLinkActive="ativo" [routerLink]="['sobre']">Sobre</li>
                 </ul>
             </div>
-
+            <img src="../assets/grid.png" alt="" class="capi">
         </div>
         <div class="barra1"></div>
         <!--mat-nav-list>
@@ -38,8 +37,7 @@
     <mat-sidenav-content>
         <router-outlet>
             <button class="btn" mat-icon-button (click)="snav.toggle()">
-                <i class="las la-bars"></i>
-
+                <mat-icon>menu</mat-icon>
             </button>
         </router-outlet>
 

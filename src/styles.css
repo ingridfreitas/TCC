@@ -42,41 +42,6 @@
     margin-right: auto;
 }
 
-/*.container{
-    height: 25px;
-    background-color: #CCC;
-    position: relative;
-    border-radius: 10px;
-    width: 150px;
-    margin: auto;
-    margin-bottom: 10px;
-}
-.container .progress{
-    position: absolute;
-    height: 100%;
-    background-color: #006d00;
-    border-radius: 10px;
-}
-
-.box{
-    color: rgb(180, 179, 179);
-    border: 2px solid rgb(141, 140, 140);
-    padding: 5px;
-    border-radius: 10px;
-    text-align: center;
-    width: 50%;
-    margin: auto;
-}
-
-#play-animation{ 
-    animation: progress-animation 5s forwards;
-}
-
-@keyframes progress-animation{
-    0%{width: 0%;}
-    100%{width: 100%;}
-}*/
-
 * {
     margin: 0;
     padding: 0;
@@ -87,6 +52,7 @@
 body {
     padding: 0;
     margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 p {
@@ -223,18 +189,75 @@ p {
     background-color: #008cff;
 }
 
-
-html,
-body {
-    height: 100%;
-    width: 100%;
+@media(max-width: 3000px) and (min-width: 1200px) {
+    .cs {
+        min-width: 25%;
+    }
+    .desc {
+        height: 150px;
+    }
+    .info{
+        padding: 10px !important;
+    }
+    .dem{
+        height: auto;
+    }
 }
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+@media(max-width: 1500px) and (min-width: 1100px) {
+    .cs {
+        min-width: 25%;
+    }
+    .desc {
+        height: 100px;
+    }
 }
 
-.espaco{
-    padding-top: 0.1rem;
+@media(max-width: 1099px) and (min-width: 915px) {
+    .cs {
+        min-width: 33%;
+    }
+    .desc {
+        height: 400px !important;
+    }
+}
+
+@media(max-width: 914px) and (min-width: 625px) {
+    .cs {
+        min-width: 50%;
+    }
+    .desc {
+        height: 370px !important;
+    }
+
+    .dem{
+        height: auto;
+    }
+}
+
+@media(max-width: 624px) and (min-width: 510px) {
+    .cs {
+        min-width: 50%;
+    }
+    .desc {
+        height: 414px !important;
+    }
+}
+
+@media(max-width: 509px) and (min-width: 450px) {
+    .cs {
+        min-width: 50%;
+    }
+    .desc {
+        height: 430px !important;
+    }
+}
+
+@media(max-width: 449px) and (min-width: 200px) {
+    .cs {
+        min-width: 100%;
+    }
+    .desc {
+        height: 400px !important;
+    }
 }

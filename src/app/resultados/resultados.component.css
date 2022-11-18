@@ -51,6 +51,16 @@ h3{
     font-size: 18px;
 }
 
+.polo{
+    font-size: 15px;
+    color: #6b6b6b;
+    font-weight: 500;
+}
+
+h4{
+    margin: 2px;
+}
+
 
 p{
     font-size: 16px;

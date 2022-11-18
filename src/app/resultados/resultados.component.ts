@@ -12,12 +12,16 @@ export class ResultadosComponent implements OnInit {
   cursos: Cursos[] = [];
   estados: Estados[] = []
   cidades: Cidades[] = [];
+
   universidades: Universidades[] = [];
   vf: string = 'Categoria';
   est: string = 'Estado';
+  cid: string = 'Cidade Central';
 
   catUni: CatUni[] = [];
   cityEst: Cidades[] = [];
+  city: Cidades[] = [];
+
 
 
   lugar: string | undefined;
@@ -41,7 +45,6 @@ export class ResultadosComponent implements OnInit {
 
     this.gradueiService.listarUnis().subscribe(unisRet => {
       this.universidades = unisRet
-      console.log(unisRet)
     });
   }
 
@@ -59,6 +62,12 @@ export class ResultadosComponent implements OnInit {
       console.log(catRet)
     })
 
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+      this.cityEst = catRet
+      this.city = catRet.filter((obj) => {
+        return obj.nome_cidade === this.cid;
+      });
+    })
   }
 
   aparecer(){
@@ -67,6 +76,7 @@ export class ResultadosComponent implements OnInit {
       console.log(catRet)
     })
   }
+
 
   formatLabel(value: number) {
     let inex = document.querySelector(".inexistente");

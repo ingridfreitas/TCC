@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CatUni, Cidades, Cursos, Estados, Universidades } from '../core/model';
+import { CatUni, Cidades, Cursos, Estados, Polos, Universidades } from '../core/model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class GradueiService {
   private readonly UNI = 'http://localhost:8080/universidades/todos'
   private readonly UniCat = 'http://localhost:8080/universidades/categoria'
   private readonly CidEst = 'http://localhost:8080/cidades/estados'
+  private readonly POLO = 'http://localhost:8080//polos/universidades/categoria'
 
 
 
@@ -41,4 +42,10 @@ export class GradueiService {
   buscarEstado(nome_estado: string){
     return this.http.get<Cidades[]>(`${this.CidEst}?nome_estado=${nome_estado}`)
   }
+
+  buscarPolo(categoria: string){
+    return this.http.get<Polos[]>(`${this.POLO}?categoria=${categoria}`)
+  }
+
+  
 }

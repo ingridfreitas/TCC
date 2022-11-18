@@ -19,7 +19,7 @@
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <select id="cidades" class="form-control" (click)="aparecer()">
+            <select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
                 <option selected>Cidade Central</option>
                 <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
             </select>
@@ -36,16 +36,17 @@
 
     <mat-drawer-content class="resultado">
         <div class="row">
-            <div class="col-3" *ngFor="let uc of cityEst">
+            <div class="col-3">
                 <div id="desc" class="card desc drax" value="0">
                     <div class="b"></div>
                     <h3 class="name"><strong>CURSO NOME</strong></h3>
+                    <h4 class="polo">polo</h4>
                     <h4><span class="las la-star"></span>5.0 </h4>
                     <div class="esp">
                         <h3 class="name"><strong>Instituição: </strong><span></span></h3>
                         <h3 class="name"><strong>Categoria: </strong><span></span></h3>
                         <h3 class="name"><strong>Estado: </strong><span>SP</span></h3>
-                        <h3 class="name"><strong>Cidade: </strong><span>{{uc.nome_cidade}}</span></h3>
+                        <h3 class="name"><strong>Cidade: </strong><span></span></h3>
                     </div>
                 </div>
             </div>

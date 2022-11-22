@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CatUni, Cidades, Cursos, Estados, Universidades } from '../core/model';
+import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos, Resultado } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
 
 @Component({
@@ -12,25 +11,30 @@ export class ResultadosComponent implements OnInit {
   cursos: Cursos[] = [];
   estados: Estados[] = []
   cidades: Cidades[] = [];
-
+  polos: Polos[] = []
+  nemo: Polos[] = []
   universidades: Universidades[] = [];
+  pocur: PolosCursos[] = [];
+
+  cur: string = 'Curso'
   vf: string = 'Categoria';
   est: string = 'Estado';
-  cid: string = 'Cidade Central';
+  //cid: string = 'Cidade Central';
 
-  catUni: CatUni[] = [];
   cityEst: Cidades[] = [];
-  city: Cidades[] = [];
+  //city: Cidades[] = [];
 
+  nome_curso: string | undefined;
+  nome_polo: string | undefined;
 
+  res: Resultado[] = [];
+  distancia: [] = []
 
   lugar: string | undefined;
 
   constructor(private gradueiService: GradueiService) { }
 
   ngOnInit(): void {
-
-    console.log(this.vf)
     this.gradueiService.listarCursos().subscribe(cursosRet => {
       this.cursos = cursosRet
     });
@@ -39,41 +43,68 @@ export class ResultadosComponent implements OnInit {
       this.estados = estRet
     });
 
-    this.gradueiService.listarCidades().subscribe(estCity => {
-      this.cidades = estCity
-    });
-
-    this.gradueiService.listarUnis().subscribe(unisRet => {
-      this.universidades = unisRet
-    });
-  }
-
-  enviar(){
-    console.log(this.vf)
-    console.log(this.est)
-
-    this.gradueiService.buscarCategoria(this.vf).subscribe(catRet =>{
-      this.catUni = catRet
-      console.log(catRet)
-    })
-
-    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
-      this.cityEst = catRet
-      console.log(catRet)
-    })
-
-    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
-      this.cityEst = catRet
-      this.city = catRet.filter((obj) => {
-        return obj.nome_cidade === this.cid;
-      });
+    this.gradueiService.listarPolos().subscribe(catRet => {
+      this.nemo = catRet
     })
   }
 
-  aparecer(){
-    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+  enviar() {
+
+    if (this.est != 'Estado') {
+      this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
+        this.cityEst = catRet
+      })
+
+      if (this.cur != 'Curso') {
+        this.gradueiService.buscar(this.cur).subscribe(catRet => {
+          this.pocur = catRet
+          console.log(this.pocur)
+
+          for (let i = 0; this.pocur.length > (i + 1); i++) {
+            this.pocur[i].cursos.nome_curso
+            this.pocur[i].polos.nome_polo
+            this.pocur[i].polos.cidades.nome_cidade
+            this.pocur[i].polos.universidades.categoria
+          }
+        })
+      }
+
+      /*if (this.cid != 'Cidade Central') {
+        this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
+          var ville = catRet.filter((obj) => {
+            return obj.nome_cidade === this.cid;
+          });
+          this.city = ville
+          this.gradueiService.buscarPoloCity(this.cid).subscribe(catRet => {
+            this.polos = catRet
+            console.log(this.polos)
+
+            
+          })
+        })
+
+      }*/
+    }
+
+
+    if (this.vf != 'Categoria') {
+      this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
+        this.universidades = catRet
+        console.log(catRet)
+      })
+
+      if (this.vf == 'ambas') {
+        this.gradueiService.listarUnis().subscribe(catRet => {
+          this.universidades = catRet
+          console.log(catRet)
+        })
+      }
+    }
+  }
+
+  aparecer() {
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
       this.cityEst = catRet
-      console.log(catRet)
     })
   }
 
@@ -102,6 +133,7 @@ export class ResultadosComponent implements OnInit {
 
         },
       ];
+
       for (let i = 0; i < distancias.length; i++) {
         var lat2: any = distancias[i].lat2;
         var latU = lat2;
@@ -139,16 +171,14 @@ export class ResultadosComponent implements OnInit {
           console.log(valores)
 
           this.lugar = valores;
-          console.log(this.lugar)
         }
         else {
           resu?.classList.add("drax")
           inex?.classList.remove("drax")
         }
       };
-      console.log(this.lugar)
-      return value;
     }
+    return value;
   }
 
 }

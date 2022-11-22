@@ -2,27 +2,27 @@
     <mat-drawer mode="side" opened class="pesquisa">
         <img src="../../assets/grid.png" alt="" class="grid">
         <div class="acc">
-            <select id="curso" class="form-control">
+            <select id="curso" class="form-control" [(ngModel)]="cur">
                 <option selected>Curso</option>
-                <option *ngFor="let cursos of cursos" value="med">{{cursos.nomeCurso}}</option>
+                <option *ngFor="let cursos of cursos" [value]="cursos.nome_curso">{{cursos.nome_curso}}</option>
             </select>
 
             <select id="categoria" class="form-control" [(ngModel)]="vf">
                 <option selected>Categoria</option>
                 <option value="publica">Pública</option>
                 <option value="privada">Privada</option>
-                <option value="todos">Ambas</option>
+                <option value="ambas">Ambas</option>
             </select>
 
-            <select id="estado" class="form-control"  [(ngModel)]="est">
+            <select id="estado" class="form-control" [(ngModel)]="est">
                 <option selected>Estado</option>
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
+            <!--select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
                 <option selected>Cidade Central</option>
                 <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
-            </select>
+            </select-->
         </div>
 
         <div class="bslider">
@@ -36,17 +36,20 @@
 
     <mat-drawer-content class="resultado">
         <div class="row">
-            <div class="col-3">
+            <div class="col-3" *ngFor="let rs of pocur">
                 <div id="desc" class="card desc drax" value="0">
-                    <div class="b"></div>
-                    <h3 class="name"><strong>CURSO NOME</strong></h3>
-                    <h4 class="polo">polo</h4>
+                    <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
+                        alt="" class="dem">
+
+                    <h3 class="name"><strong>{{rs.cursos.nome_curso}}</strong></h3>
+                    <h4 class="polo">{{rs.polos.nome_polo}}</h4>
                     <h4><span class="las la-star"></span>5.0 </h4>
                     <div class="esp">
                         <h3 class="name"><strong>Instituição: </strong><span></span></h3>
-                        <h3 class="name"><strong>Categoria: </strong><span></span></h3>
+                        <h3 class="name"><strong>Categoria: </strong><span>{{rs.polos.universidades.categoria}}</span>
+                        </h3>
                         <h3 class="name"><strong>Estado: </strong><span>SP</span></h3>
-                        <h3 class="name"><strong>Cidade: </strong><span></span></h3>
+                        <h3 class="name"><strong>Cidade: </strong><span>{{rs.polos.cidades.nome_cidade}}</span></h3>
                     </div>
                 </div>
             </div>

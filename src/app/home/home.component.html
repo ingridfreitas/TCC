@@ -22,7 +22,7 @@
         <div class="acc">
             <select id="curso" class="form-control">
                 <option selected>Curso</option>
-                <option *ngFor="let cursos of cursos" value="med">{{cursos.nomeCurso}}</option>
+                <option *ngFor="let cursos of cursos" value="med">{{cursos.nome_curso}}</option>
             </select>
 
             <select id="categoria" class="form-control">
@@ -37,10 +37,10 @@
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <select id="cidades" class="form-control" (click)="aparecer()">
+            <!--select id="cidades" class="form-control" (click)="aparecer()">
                 <option selected>Cidade Central</option>
                 <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
-            </select>
+            </select-->
         </div>
 
         <div class="bslider">

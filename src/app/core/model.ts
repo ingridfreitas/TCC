@@ -2,7 +2,7 @@ export interface Cursos {
     id: number;
     duracao: string;
     descricao: string;
-    nomeCurso: string
+    nome_curso: string
     imgPath: string
 }
 
@@ -15,6 +15,16 @@ export interface Estados {
 export interface Cidades {
     id: number,
     nome_cidade: string
+    estados: Estados
+}
+
+export interface Polos {
+    id: number,
+    nome_polo: string,
+    universidades: Universidades,
+    latitude: string,
+    longitude: string,
+    cidades: Cidades
 }
 
 export interface Universidades {
@@ -26,15 +36,16 @@ export interface Universidades {
     link: string
 }
 
-export interface CatUni {
+export interface PolosCursos{
     id: number,
-    nome_universidade: string,
-    sigla: string,
-    categoria: string,
-    img: string
+    nota: number;
+    link: string;
+    cursos: Cursos;
+    polos: Polos;
 }
 
-export interface Polos {
-    id: number,
-    nome_polo: string
+export interface Resultado{
+    id: number;
+    nome_polo: string,
+    nome_curso: string
 }

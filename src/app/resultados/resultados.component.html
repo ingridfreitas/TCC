@@ -9,9 +9,9 @@
 
             <select id="categoria" class="form-control" [(ngModel)]="vf">
                 <option selected>Categoria</option>
-                <option value="publica">Pública</option>
-                <option value="privada">Privada</option>
-                <option value="ambas">Ambas</option>
+                <option value="Pública">Pública</option>
+                <option value="Privada">Privada</option>
+                <option value="Ambas">Ambas</option>
             </select>
 
             <select id="estado" class="form-control" [(ngModel)]="est">
@@ -19,10 +19,10 @@
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <!--select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
-                <option selected>Cidade Central</option>
-                <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
-            </select-->
+            <select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
+                <option selected>{{cid}}</option>
+                <option *ngFor="let uc of cityEst" [value]="uc.nome_cidade">{{uc.nome_cidade}}</option>
+            </select>
         </div>
 
         <div class="bslider">
@@ -36,16 +36,16 @@
 
     <mat-drawer-content class="resultado">
         <div class="row">
-            <div class="col-3" *ngFor="let rs of pocur">
+            <div class="col-3" *ngFor="let rs of res">
                 <div id="desc" class="card desc drax" value="0">
                     <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
                         alt="" class="dem">
 
-                    <h3 class="name"><strong>{{rs.cursos.nome_curso}}</strong></h3>
+                    <h3 class="name">{{rs.cursos.nome_curso}}<strong></strong></h3>
                     <h4 class="polo">{{rs.polos.nome_polo}}</h4>
-                    <h4><span class="las la-star"></span>5.0 </h4>
+                    <h4><span class="las la-star"></span>{{rs.nota}}.0 </h4>
                     <div class="esp">
-                        <h3 class="name"><strong>Instituição: </strong><span></span></h3>
+                        <h3 class="name"><strong>Instituição: </strong><span>{{rs.polos.universidades.sigla}}</span></h3>
                         <h3 class="name"><strong>Categoria: </strong><span>{{rs.polos.universidades.categoria}}</span>
                         </h3>
                         <h3 class="name"><strong>Estado: </strong><span>SP</span></h3>

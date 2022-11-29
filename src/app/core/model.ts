@@ -3,7 +3,7 @@ export interface Cursos {
     duracao: string;
     descricao: string;
     nome_curso: string
-    imgPath: string
+    img: string
 }
 
 export interface Estados {

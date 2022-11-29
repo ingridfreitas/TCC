@@ -19,6 +19,7 @@ export class CursosComponent implements OnInit {
   ngOnInit(): void {
     this.gradueiService.listarCursos().subscribe(cursosRet => {
       this.cursos = cursosRet
+      console.log(this.cursos)
     });
   }
 

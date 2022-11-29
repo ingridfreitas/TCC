@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { empty } from 'rxjs';
 import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos, Resultado } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
 
@@ -12,23 +13,17 @@ export class ResultadosComponent implements OnInit {
   estados: Estados[] = []
   cidades: Cidades[] = [];
   polos: Polos[] = []
-  nemo: Polos[] = []
   universidades: Universidades[] = [];
   pocur: PolosCursos[] = [];
+  cityEst: Cidades[] = [];
+  city: Cidades[] = [];
+  res: PolosCursos[] = [];
+  pol: PolosCursos[] = []
 
   cur: string = 'Curso'
   vf: string = 'Categoria';
   est: string = 'Estado';
-  //cid: string = 'Cidade Central';
-
-  cityEst: Cidades[] = [];
-  //city: Cidades[] = [];
-
-  nome_curso: string | undefined;
-  nome_polo: string | undefined;
-
-  res: Resultado[] = [];
-  distancia: [] = []
+  cid: string = 'Cidades';
 
   lugar: string | undefined;
 
@@ -44,7 +39,7 @@ export class ResultadosComponent implements OnInit {
     });
 
     this.gradueiService.listarPolos().subscribe(catRet => {
-      this.nemo = catRet
+      this.polos = catRet
     })
   }
 
@@ -58,18 +53,10 @@ export class ResultadosComponent implements OnInit {
       if (this.cur != 'Curso') {
         this.gradueiService.buscar(this.cur).subscribe(catRet => {
           this.pocur = catRet
-          console.log(this.pocur)
-
-          for (let i = 0; this.pocur.length > (i + 1); i++) {
-            this.pocur[i].cursos.nome_curso
-            this.pocur[i].polos.nome_polo
-            this.pocur[i].polos.cidades.nome_cidade
-            this.pocur[i].polos.universidades.categoria
-          }
         })
       }
 
-      /*if (this.cid != 'Cidade Central') {
+      if (this.cid != 'Cidade Central') {
         this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
           var ville = catRet.filter((obj) => {
             return obj.nome_cidade === this.cid;
@@ -77,26 +64,24 @@ export class ResultadosComponent implements OnInit {
           this.city = ville
           this.gradueiService.buscarPoloCity(this.cid).subscribe(catRet => {
             this.polos = catRet
-            console.log(this.polos)
 
-            
+            this.pol = this.pocur.filter((city) => {
+              return city.polos.cidades.nome_cidade === this.cid;
+            });
           })
         })
+      }
 
-      }*/
-    }
-
-
-    if (this.vf != 'Categoria') {
-      this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
-        this.universidades = catRet
-        console.log(catRet)
-      })
-
-      if (this.vf == 'ambas') {
-        this.gradueiService.listarUnis().subscribe(catRet => {
+      if (this.vf != 'Categoria') {
+        if (this.vf == 'Ambas') {
+          this.res = this.pol
+        }
+        else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
           this.universidades = catRet
-          console.log(catRet)
+
+          this.res = this.pol.filter((uni) => {
+            return uni.polos.universidades.categoria === this.vf
+          })
         })
       }
     }
@@ -107,6 +92,7 @@ export class ResultadosComponent implements OnInit {
       this.cityEst = catRet
     })
   }
+
 
 
   formatLabel(value: number) {

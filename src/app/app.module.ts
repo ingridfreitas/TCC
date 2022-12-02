@@ -24,6 +24,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultadosComponent } from './resultados/resultados.component';
 import { FormsModule } from '@angular/forms';
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     InstituicoesComponent,
     TestesComponent,
     AboutComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,7 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    HttpClientModule
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

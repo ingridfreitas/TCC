@@ -1,6 +1,6 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { Component, OnInit } from '@angular/core';
-import { empty } from 'rxjs';
-import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos, Resultado } from '../core/model';
+import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
 
 @Component({
@@ -9,9 +9,16 @@ import { GradueiService } from '../services/graduei.service';
   styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent implements OnInit {
+  value: number = 41;
+  options: Options = {
+    floor: 0,
+    ceil: 200,
+  };
+
+  d: number = 0;
+
   cursos: Cursos[] = [];
   estados: Estados[] = []
-  cidades: Cidades[] = [];
   polos: Polos[] = []
   universidades: Universidades[] = [];
   pocur: PolosCursos[] = [];
@@ -19,13 +26,17 @@ export class ResultadosComponent implements OnInit {
   city: Cidades[] = [];
   res: PolosCursos[] = [];
   pol: PolosCursos[] = []
+  pocurd: PolosCursos[] = []
+  fimd: PolosCursos[] = []
+
 
   cur: string = 'Curso'
+  curd: string = 'Curso'
   vf: string = 'Categoria';
   est: string = 'Estado';
-  cid: string = 'Cidades';
+  cid: string = 'Cidade Central';
 
-  lugar: string | undefined;
+  valores: PolosCursos[] = []
 
   constructor(private gradueiService: GradueiService) { }
 
@@ -93,37 +104,22 @@ export class ResultadosComponent implements OnInit {
     })
   }
 
+  sla() {
+    console.log(this.curd);
 
+    this.gradueiService.buscar(this.curd).subscribe(ret => {
+      this.pocurd = ret
 
-  formatLabel(value: number) {
-    let inex = document.querySelector(".inexistente");
-    let resu = document.querySelector(".unis")
-
-    if (value >= 1000) {
-      return Math.round(value / 1000);
-    }
-    else {
       var lat1 = -22.5870608;
       var lon1 = -48.7894605;
 
-      let distancias = [
-        {
-          universidade: "Unesp: Botucatu",
-          lat2: "-22.8914667",
-          lon2: "-48.4985389",
-        },
-        {
-          universidade: "Unesp: Bauru",
-          lat2: "-22.3431576",
-          lon2: "-49.0599622"
-
-        },
-      ];
+      let distancias = this.pocurd
 
       for (let i = 0; i < distancias.length; i++) {
-        var lat2: any = distancias[i].lat2;
+
+        var lat2: any = distancias[i].polos.latitude;
         var latU = lat2;
-        var lon2: any = distancias[i].lon2;
+        var lon2: any = distancias[i].polos.longitude;
         var lonU = lon2;
 
         const rad = function (x: any) {
@@ -140,31 +136,17 @@ export class ResultadosComponent implements OnInit {
           Math.sin(dLong / 2) *
           Math.sin(dLong / 2);
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c;
+        this.d = R * c;
 
-        const sla = [
-          {
-            nome: distancias[i].universidade,
-            distancia: d
-          }
-        ]
-
-        if (value >= d) {
-          let valores = sla.find((dist) => dist.nome)?.nome
-
-          resu?.classList.remove("drax")
-          inex?.classList.add("drax")
-          console.log(valores)
-
-          this.lugar = valores;
+        if (this.value >= this.d) {
+          this.fimd[i] = distancias[i]
+          this.valores = this.fimd.filter(aa => {
+            console.log(aa)
+            return aa.cursos.nome_curso == this.curd
+          })
+          console.log(this.valores)
         }
-        else {
-          resu?.classList.add("drax")
-          inex?.classList.remove("drax")
-        }
-      };
-    }
-    return value;
+      }
+    })
   }
-
 }

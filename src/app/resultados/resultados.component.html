@@ -24,19 +24,22 @@
                 <option *ngFor="let uc of cityEst" [value]="uc.nome_cidade">{{uc.nome_cidade}}</option>
             </select>
         </div>
-
-        <div class="bslider">
-            <span class="left sli">0</span>
-            <mat-slider thumbLabel [displayWith]="formatLabel" step="1" min="0" max="200" class="slider"></mat-slider>
-            <span class="right sli">200</span>
-        </div>
-
         <button (click)="enviar()" class="btn">BUSCAR <i class="las la-search"></i></button>
+
+
+        <select id="curso" class="form-control nemo" [(ngModel)]="curd">
+            <option selected>Curso</option>
+            <option *ngFor="let cursos of cursos" [value]="cursos.nome_curso">{{cursos.nome_curso}}</option>
+        </select>
+        <div class="bslider">
+            <ngx-slider [(ngModel)]="value" [options]="options"></ngx-slider>
+        </div>
+        <button (click)="sla()" class="btn">BUSCAR <i class="las la-search"></i></button>
     </mat-drawer>
 
     <mat-drawer-content class="resultado">
         <div class="row">
-            <div class="col-3" *ngFor="let rs of res">
+            <div class="col-3" *ngFor="let rs of valores">
                 <div id="desc" class="card desc drax" value="0">
                     <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
                         alt="" class="dem">
@@ -45,7 +48,8 @@
                     <h4 class="polo">{{rs.polos.nome_polo}}</h4>
                     <h4><span class="las la-star"></span>{{rs.nota}}.0 </h4>
                     <div class="esp">
-                        <h3 class="name"><strong>Instituição: </strong><span>{{rs.polos.universidades.sigla}}</span></h3>
+                        <h3 class="name"><strong>Instituição: </strong><span>{{rs.polos.universidades.sigla}}</span>
+                        </h3>
                         <h3 class="name"><strong>Categoria: </strong><span>{{rs.polos.universidades.categoria}}</span>
                         </h3>
                         <h3 class="name"><strong>Estado: </strong><span>SP</span></h3>

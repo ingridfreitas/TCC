@@ -1,5 +1,5 @@
 .mapa {
-    margin-top: -50px;
+    margin-top: -160px;
     width: 78%;
     height: auto;
     text-align: center;
@@ -11,7 +11,7 @@
     margin: 0;
     width: 110%;
     height: auto;
-    margin-top: 40%;
+    margin-top: 5%;
 }
 
 .cont{
@@ -40,15 +40,17 @@ option{
 p {
     padding: 0;
     margin: 0;
-    font-size: 17px;
+    font-size: 19px;
     color: #545454;
-    font-family: "Poppins", sans-serif;
+    font-family: "blippo", fantasy;
     overflow: hidden;
+    line-height: 1.7rem;
+
 }
 
 .card-grid {
     width: 85%;
-    margin-top: 1rem;
+    margin-top: 7rem;
 }
 
 .bloco-grid {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cidades, Cursos, Estados, Universidades } from '../core/model';
 import { GradueiService } from '../services/graduei.service';
@@ -10,12 +11,15 @@ import { GradueiService } from '../services/graduei.service';
 })
 export class HomeComponent implements OnInit {
 
+  //@Output() miami = "right"
+
   cursos: Cursos[] = [];
   estados: Estados[] = []
   cidades: Cidades[] = [];
   universidades: Universidades[] = [];
   est: string = 'Estado';
   cityEst: Cidades[] = [];
+  cid: string = 'Cidade Central';
 
   aparece: boolean = false;
   dados: any = []
@@ -26,7 +30,7 @@ export class HomeComponent implements OnInit {
     mapa?.classList.add("nada");
   }
 
-  constructor(private gradueiService: GradueiService) {
+  constructor(private gradueiService: GradueiService, private router: Router) {
 
   }
 
@@ -53,10 +57,9 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  aparecer(){
-    this.gradueiService.buscarEstado(this.est).subscribe(catRet =>{
+  aparecer() {
+    this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
       this.cityEst = catRet
-      console.log(catRet)
     })
   }
 

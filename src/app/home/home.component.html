@@ -17,26 +17,26 @@
     </div>
     <div class="col-4">
         <div class="acc">
-            <select id="curso" class="form-control">
+            <select id="curso" class="form-control" #curs>
                 <option selected>Curso</option>
-                <option *ngFor="let cursos of cursos" value="med">{{cursos.nome_curso}}</option>
+                <option *ngFor="let cursos of cursos" [value]="cursos.nome_curso">{{cursos.nome_curso}}</option>
             </select>
 
-            <select id="categoria" class="form-control">
+            <select id="categoria" class="form-control" #cate>
                 <option selected>Categoria</option>
-                <option value="pub">Pública</option>
-                <option value="part">Particular</option>
-                <option value="all">Ambas</option>
+                <option value="Pública">Pública</option>
+                <option value="Privada">Privada</option>
+                <option value="Ambas">Ambas</option>
             </select>
 
-            <select id="estado" class="form-control" [(ngModel)]="est">
+            <select id="estado" class="form-control" #esta [(ngModel)]="est">
                 <option selected>Estado</option>
                 <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
             </select>
 
-            <select id="cidades" class="form-control" (click)="aparecer()">
-                <option selected>Cidade Central</option>
-                <option *ngFor="let uc of cityEst">{{uc.nome_cidade}}</option>
+            <select id="cidades" class="form-control" (click)="aparecer()" #cici [(ngModel)]="cid">
+                <option selected>{{cid}}</option>
+                <option *ngFor="let uc of cityEst" [value]="uc.nome_cidade">{{uc.nome_cidade}}</option>
             </select>
         </div>
 
@@ -46,7 +46,7 @@
             <span class="right sli">200</span>
         </div>
 
-        <button class="btn" [routerLink]="['/resultados']">BUSCAR <i class="las la-search"></i></button>
+        <button class="btn" [routerLink]="['/resultados', curs.value, cate.value, esta.value, cici.value]">BUSCAR <i class="las la-search"></i></button>
     </div>
 
 </div>

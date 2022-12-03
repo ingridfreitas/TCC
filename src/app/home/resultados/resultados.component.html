@@ -1,6 +1,6 @@
 <mat-drawer-container class="all">
     <mat-drawer mode="side" opened class="pesquisa">
-        <img src="../../assets/grid.png" alt="" class="grid">
+        <img src="../../../assets/grid.png" alt="" class="grid">
         <div class="acc">
             <select id="curso" class="form-control" [(ngModel)]="cur">
                 <option selected>Curso</option>
@@ -16,7 +16,7 @@
 
             <select id="estado" class="form-control" [(ngModel)]="est">
                 <option selected>Estado</option>
-                <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
+                <option *ngFor="let estados of estados" [value]="estados.nome_estado">{{estados.nome_estado}}</option>
             </select>
 
             <select id="cidades" class="form-control" (click)="aparecer()" [(ngModel)]="cid">
@@ -39,7 +39,7 @@
 
     <mat-drawer-content class="resultado">
         <div class="row">
-            <div class="col-3" *ngFor="let rs of valores">
+            <div class="col-3" *ngFor="let rs of res">
                 <div id="desc" class="card desc drax" value="0">
                     <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
                         alt="" class="dem">

@@ -22,10 +22,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { ResultadosComponent } from './resultados/resultados.component';
 import { FormsModule } from '@angular/forms';
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { AdminComponent } from './admin/admin.component';
+import { ResultadosComponent } from './home/resultados/resultados.component';
 
 
 @NgModule({

@@ -1,7 +1,8 @@
 import { Options } from '@angular-slider/ngx-slider';
-import { Component, OnInit } from '@angular/core';
-import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos } from '../core/model';
-import { GradueiService } from '../services/graduei.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos } from '../../core/model'
+import { GradueiService } from '../../services/graduei.service';
 
 @Component({
   selector: 'app-resultados',
@@ -9,6 +10,13 @@ import { GradueiService } from '../services/graduei.service';
   styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent implements OnInit {
+  //@Input() miami = '';
+
+  miami: string = '';
+  otrr: string = '';
+  florida: string = ''
+  kit: string = ''
+
   value: number = 41;
   options: Options = {
     floor: 0,
@@ -38,7 +46,7 @@ export class ResultadosComponent implements OnInit {
 
   valores: PolosCursos[] = []
 
-  constructor(private gradueiService: GradueiService) { }
+  constructor(private gradueiService: GradueiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.gradueiService.listarCursos().subscribe(cursosRet => {
@@ -51,6 +59,60 @@ export class ResultadosComponent implements OnInit {
 
     this.gradueiService.listarPolos().subscribe(catRet => {
       this.polos = catRet
+    })
+
+    this.route.params.subscribe((rt: any) => {
+      this.otrr = rt.otrr
+      this.kit = rt.kit
+      this.florida = rt.florida
+      this.miami = rt.miami
+
+      this.cur = this.otrr
+      this.vf = this.kit
+      this.est = this.florida
+      this.cid = this.miami
+
+      if (this.florida != 'Estado') {
+        this.gradueiService.buscarEstado(this.florida).subscribe(catRet => {
+          this.cityEst = catRet
+        })
+
+        if (this.otrr != 'Curso') {
+          this.gradueiService.buscar(this.otrr).subscribe(catRet => {
+            this.pocur = catRet
+          })
+        }
+
+        if (this.miami != 'Cidade Central') {
+          this.gradueiService.buscarEstado(this.florida).subscribe(catRet => {
+            var ville = catRet.filter((obj) => {
+              return obj.nome_cidade === this.miami;
+            });
+            this.city = ville
+            this.gradueiService.buscarPoloCity(this.miami).subscribe(catRet => {
+              this.polos = catRet
+
+              this.pol = this.pocur.filter((city) => {
+                return city.polos.cidades.nome_cidade === this.miami;
+              });
+              if (this.kit != 'Categoria') {
+                if (this.kit == 'Ambas') {
+                  this.res = this.pol
+                }
+                else this.gradueiService.buscarCategoria(this.kit).subscribe(catRet => {
+                  this.universidades = catRet
+    
+                  this.res = this.pol.filter((uni) => {
+                    uni.polos.universidades.categoria === this.kit
+                  })
+                })
+              }
+            })
+          })
+          
+        }
+      }
+
     })
   }
 
@@ -105,7 +167,6 @@ export class ResultadosComponent implements OnInit {
   }
 
   sla() {
-    console.log(this.curd);
 
     this.gradueiService.buscar(this.curd).subscribe(ret => {
       this.pocurd = ret
@@ -141,10 +202,8 @@ export class ResultadosComponent implements OnInit {
         if (this.value >= this.d) {
           this.fimd[i] = distancias[i]
           this.valores = this.fimd.filter(aa => {
-            console.log(aa)
             return aa.cursos.nome_curso == this.curd
           })
-          console.log(this.valores)
         }
       }
     })

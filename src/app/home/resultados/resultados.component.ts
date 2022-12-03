@@ -10,7 +10,9 @@ import { GradueiService } from '../../services/graduei.service';
   styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent implements OnInit {
-  //@Input() miami = '';
+
+  ccce = false
+  dist = false
 
   miami: string = '';
   otrr: string = '';
@@ -81,52 +83,10 @@ export class ResultadosComponent implements OnInit {
         this.enviar()
       }
 
-      /*if (this.florida != 'Estado') {
-        this.gradueiService.buscarEstado(this.florida).subscribe(catRet => {
-          this.cityEst = catRet
-        })
-
-        if (this.otrr != 'Curso') {
-          this.gradueiService.buscar(this.otrr).subscribe(catRet => {
-            this.pocur = catRet
-          })
-        }
-
-        if (this.miami != 'Cidade Central') {
-          this.gradueiService.buscarEstado(this.florida).subscribe(catRet => {
-            var ville = catRet.filter((obj) => {
-              return obj.nome_cidade === this.miami;
-            });
-            this.city = ville
-            this.gradueiService.buscarPoloCity(this.miami).subscribe(catRet => {
-              this.polos = catRet
-
-              this.pol = this.pocur.filter((city) => {
-                return city.polos.cidades.nome_cidade === this.miami;
-              });
-              if (this.kit != 'Categoria') {
-                if (this.kit == 'Ambas') {
-                  this.res = this.pol
-                }
-                else this.gradueiService.buscarCategoria(this.kit).subscribe(catRet => {
-                  this.universidades = catRet
-    
-                  this.res = this.pol.filter((uni) => {
-                    uni.polos.universidades.categoria === this.kit
-                  })
-                })
-              }
-            })
-          })
-          
-        }
-      }*/
-
-      if(this.curd != 'Curso'){
+      if (this.curd != 'Curso') {
         console.log("sim")
         this.sla()
       }
-
     })
   }
 
@@ -161,10 +121,17 @@ export class ResultadosComponent implements OnInit {
               }
               else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
                 this.universidades = catRet
-      
+
                 this.res = this.pol.filter((uni) => {
                   return uni.polos.universidades.categoria === this.vf
                 })
+
+                if (this.res.length > 0) {
+                  this.ccce = true
+                }
+                else{
+                  this.ccce = false
+                }
               })
             }
           })
@@ -216,6 +183,12 @@ export class ResultadosComponent implements OnInit {
           this.valores = this.fimd.filter(aa => {
             return aa.cursos.nome_curso == this.curd
           })
+          if (this.valores.length > 0) {
+            this.dist = true
+          }
+          else{
+            this.dist = false
+          }
         }
       }
     })

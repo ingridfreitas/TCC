@@ -13,6 +13,47 @@
                 orientador do projeto foi Rogério Luna Furlan da Etec Cidade do Livro.
             </p>
         </div>
+
     </div>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">Administrador</button>
+
+    <ng-template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Login de Administrador</h4>
+            <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                <span aria-hidden="true" class="visually-hidden">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-6">
+                    <label for="user">Nome de Usuário: </label>
+                </div>
+                <div class="col-6">
+                    <input type="text" id="user" [(ngModel)]="user">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label for="senha">Senha:</label>
+                </div>
+                <div class="col-6">
+                    <input type="password" id="senha" [(ngModel)]="senha">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn canc" (click)="canc()">Cancelar <i class="las la-search"></i></button>
+                </div>
+                <div class="col-6">
+                    <button class="btn" (click)="entrar()">Entrar <i class="las la-search"></i></button>
+                </div>
+            </div>
+            <div *ngFor="let alert of alerts" class="alert">
+                <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{ alert.msg }}</alert>
+            </div>
+        </div>
+    </ng-template>
 </div>
-<!--app-footer></app-footer-->

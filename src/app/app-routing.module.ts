@@ -6,12 +6,10 @@ import { CursosComponent } from './cursos/cursos.component';
 import { HomeComponent } from './home/home.component';
 import { ResultadosComponent } from './home/resultados/resultados.component';
 import { InstituicoesComponent } from './instituicoes/instituicoes.component';
-import { MapsComponent } from './maps/maps.component';
 import { TestesComponent } from './testes/testes.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'maps', component: MapsComponent},
   {path: 'cursos', component: CursosComponent},
   {path: 'inst', component: InstituicoesComponent},
   {path: 'testes', component: TestesComponent},

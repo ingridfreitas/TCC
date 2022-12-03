@@ -8,9 +8,7 @@
 <mat-sidenav-container>
     <mat-sidenav #snav class="sidenav">
         <div class="barra1">
-            <button mat-fab>
-                <mat-icon>menu</mat-icon>
-              </button>
+            <button>ABRIR</button>
         </div>
         <div class="barra2"></div>
         <div class="nav">
@@ -36,9 +34,7 @@
 
     <mat-sidenav-content>
         <router-outlet>
-            <button class="btn" mat-icon-button (click)="snav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
+            <button class="btn" (click)="snav.toggle()">FECHAR </button>
         </router-outlet>
 
     </mat-sidenav-content>

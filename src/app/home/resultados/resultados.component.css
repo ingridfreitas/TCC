@@ -9,6 +9,11 @@
     height: 100%;
 }
 
+.nf{
+    height: auto;
+    width: 40%;
+}
+
 mat-drawer-container{
     height: calc(205vh - 115vh);
 }

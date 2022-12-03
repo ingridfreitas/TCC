@@ -39,15 +39,16 @@
                 <option *ngFor="let uc of cityEst" [value]="uc.nome_cidade">{{uc.nome_cidade}}</option>
             </select>
         </div>
-
-        <div class="bslider">
-            <span class="left sli">0</span>
-            <mat-slider thumbLabel [displayWith]="formatLabel" step="1" min="0" max="200" class="slider"></mat-slider>
-            <span class="right sli">200</span>
-        </div>
-
         <button class="btn" [routerLink]="['/resultados', curs.value, cate.value, esta.value, cici.value]">BUSCAR <i class="las la-search"></i></button>
+        
+        <select id="curso" class="form-control" #curhd [(ngModel)]="cur">
+            <option selected>{{cur}}</option>
+            <option *ngFor="let cursos of cursos" [value]="cursos.nome_curso">{{cursos.nome_curso}}</option>
+        </select>
+        <div class="bslider">
+            <ngx-slider [(ngModel)]="value" [options]="options" #numb></ngx-slider>
+        </div>
+        <button class="btn" [routerLink]="['/resultado', curhd.value, numb.value]">BUSCAR <i class="las la-search"></i></button>
     </div>
 
 </div>
-<app-footer></app-footer>

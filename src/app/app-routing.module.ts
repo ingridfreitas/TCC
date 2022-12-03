@@ -17,6 +17,7 @@ const routes: Routes = [
   {path: 'testes', component: TestesComponent},
   {path: 'sobre', component: AboutComponent},
   {path: 'resultados/:otrr/:kit/:florida/:miami', component: ResultadosComponent},
+  {path: 'resultado/:curhd/:ds', component: ResultadosComponent},
   {path: 'admin', component: AdminComponent}
 ];
 

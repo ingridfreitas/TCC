@@ -1,5 +1,5 @@
 import { Options } from '@angular-slider/ngx-slider';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cidades, Cursos, Estados, Universidades, Polos, PolosCursos } from '../../core/model'
 import { GradueiService } from '../../services/graduei.service';
@@ -16,8 +16,9 @@ export class ResultadosComponent implements OnInit {
   otrr: string = '';
   florida: string = ''
   kit: string = ''
+  otrrhd: string = ''
 
-  value: number = 41;
+  value: number = 0;
   options: Options = {
     floor: 0,
     ceil: 200,
@@ -66,13 +67,21 @@ export class ResultadosComponent implements OnInit {
       this.kit = rt.kit
       this.florida = rt.florida
       this.miami = rt.miami
+      this.otrrhd = rt.curhd
+      this.value = rt.ds
 
       this.cur = this.otrr
       this.vf = this.kit
       this.est = this.florida
       this.cid = this.miami
+      this.curd = this.otrrhd
 
       if (this.florida != 'Estado') {
+        console.log("sim")
+        this.enviar()
+      }
+
+      /*if (this.florida != 'Estado') {
         this.gradueiService.buscarEstado(this.florida).subscribe(catRet => {
           this.cityEst = catRet
         })
@@ -111,6 +120,11 @@ export class ResultadosComponent implements OnInit {
           })
           
         }
+      }*/
+
+      if(this.curd != 'Curso'){
+        console.log("sim")
+        this.sla()
       }
 
     })
@@ -141,19 +155,18 @@ export class ResultadosComponent implements OnInit {
             this.pol = this.pocur.filter((city) => {
               return city.polos.cidades.nome_cidade === this.cid;
             });
-          })
-        })
-      }
-
-      if (this.vf != 'Categoria') {
-        if (this.vf == 'Ambas') {
-          this.res = this.pol
-        }
-        else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
-          this.universidades = catRet
-
-          this.res = this.pol.filter((uni) => {
-            return uni.polos.universidades.categoria === this.vf
+            if (this.vf != 'Categoria') {
+              if (this.vf == 'Ambas') {
+                this.res = this.pol
+              }
+              else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
+                this.universidades = catRet
+      
+                this.res = this.pol.filter((uni) => {
+                  return uni.polos.universidades.categoria === this.vf
+                })
+              })
+            }
           })
         })
       }
@@ -167,7 +180,6 @@ export class ResultadosComponent implements OnInit {
   }
 
   sla() {
-
     this.gradueiService.buscar(this.curd).subscribe(ret => {
       this.pocurd = ret
 

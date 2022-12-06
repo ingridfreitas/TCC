@@ -1,5 +1,5 @@
 export interface Cursos {
-    id: number;
+    id?: number,
     duracao: string;
     descricao: string;
     nome_curso: string
@@ -7,19 +7,18 @@ export interface Cursos {
 }
 
 export interface Estados {
-    id: number,
-    nome_estado: string,
-    sigla: string
+    id?: number,
+    nome_estado: string
 }
 
 export interface Cidades {
-    id: number,
+    id?: number,
     nome_cidade: string
     estados: Estados
 }
 
 export interface Polos {
-    id: number,
+    id?: number
     nome_polo: string,
     universidades: Universidades,
     latitude: string,
@@ -28,7 +27,7 @@ export interface Polos {
 }
 
 export interface Universidades {
-    id: number,
+    id?: number,
     nome_universidade: string,
     sigla: string,
     categoria: string,
@@ -37,15 +36,15 @@ export interface Universidades {
 }
 
 export interface PolosCursos{
-    id: number,
-    nota: number;
+    id?: number,
+    nota: string;
     link: string;
     cursos: Cursos;
     polos: Polos;
 }
 
 export interface Resultado{
-    id: number;
+    id?: number;
     nome_polo: string,
     nome_curso: string
 }

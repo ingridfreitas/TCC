@@ -12,6 +12,10 @@
 .nf{
     height: auto;
     width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    bottom: 0;
 }
 
 mat-drawer-container{
@@ -28,7 +32,7 @@ mat-drawer{
     margin-right: auto;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
-    height: 380px;
+    height: 430px;
 }
 
 .b{
@@ -92,6 +96,11 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
+
+.dem{
+    width: 100% !important;
+    height: 200px;
+}
 .form-control {
     border: 5px double #545454;
     margin-top: 20px;
@@ -134,4 +143,10 @@ img{
 
 .slider {
     width: 75%;
+}
+
+.erro{
+    font-size: 30px;
+    margin-top: 2rem;
+    margin-left: 20rem;
 }

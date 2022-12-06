@@ -39,15 +39,14 @@
 
     <mat-drawer-content class="resultado">
         <div class="haha" *ngIf="ccce || dist; else nada">
-            <div class="row" *ngIf="ccce">
+            <div class="row par drax" *ngIf="ccce">
                 <div class="col-3" *ngFor="let rs of res">
                     <div id="desc" class="card desc drax" value="0">
-                        <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
+                        <img [src]="rs.cursos.img"
                             alt="" class="dem">
-    
                         <h3 class="name">{{rs.cursos.nome_curso}}<strong></strong></h3>
                         <h4 class="polo">{{rs.polos.nome_polo}}</h4>
-                        <h4><span class="las la-star"></span>{{rs.nota}}.0 </h4>
+                        <h4><span class="las la-star"></span>{{rs.nota}} </h4>
                         <div class="esp">
                             <h3 class="name"><strong>Instituição: </strong><span>{{rs.polos.universidades.sigla}}</span>
                             </h3>
@@ -60,15 +59,15 @@
                 </div>
             </div>
     
-            <div class="row" *ngIf="dist">
+            <div class="row di drax" *ngIf="dist">
                 <div class="col-3" *ngFor="let rs of valores">
                     <div id="desc" class="card desc drax" value="0">
-                        <img src="https://static.vecteezy.com/system/resources/previews/002/743/514/original/green-check-mark-icon-in-a-circle-free-vector.jpg"
+                        <img [src]="rs.cursos.img"
                             alt="" class="dem">
     
                         <h3 class="name">{{rs.cursos.nome_curso}}<strong></strong></h3>
                         <h4 class="polo">{{rs.polos.nome_polo}}</h4>
-                        <h4><span class="las la-star"></span>{{rs.nota}}.0 </h4>
+                        <h4><span class="las la-star"></span>{{rs.nota}} </h4>
                         <div class="esp">
                             <h3 class="name"><strong>Instituição: </strong><span>{{rs.polos.universidades.sigla}}</span>
                             </h3>
@@ -82,7 +81,8 @@
             </div>
         </div>
         <ng-template #nada>
-            <img src="https://img.freepik.com/vetores-premium/arquivo-nao-encontrado-ilustracao-com-pessoas-confusas-segurando-uma-lupa-grande-pesquisa-sem-resultado_258153-336.jpg" class="nf" alt="">
+            <img src="../../../assets/save.png" class="nf" alt="">
+            <h1 class="erro">OPS! Não encontramos nenhum dado</h1>
         </ng-template>
     </mat-drawer-content>
 </mat-drawer-container>

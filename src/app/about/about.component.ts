@@ -40,9 +40,14 @@ export class AboutComponent implements OnInit {
       this.senha = ''
       this.alerts.push({
         type: 'danger',
-        msg: `<strong>ERRO!</strong> Usuário ou senha incorretos`,
+        msg: `ERRO! Usuário ou senha incorretos`,
         timeout: 5000
       });
+
+      console.log(this.user)
+      console.log(this.usuario)
+      console.log(this.pass)
+      console.log(this.senha)
     }
   }
 

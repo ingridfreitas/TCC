@@ -12,7 +12,7 @@ import { GradueiService } from '../services/graduei.service';
 })
 export class HomeComponent implements OnInit {
 
-  value: number = 41;
+  value: number = 15;
   options: Options = {
     floor: 0,
     ceil: 200,
@@ -42,11 +42,29 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.gradueiService.listarCursos().subscribe(cursosRet => {
-      this.cursos = cursosRet
+      this.cursos = cursosRet.sort(function(a, b){
+        if (a.nome_curso > b.nome_curso) {
+          return 1;
+        }
+        if (a.nome_curso < b.nome_curso) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     });
 
     this.gradueiService.listarEstados().subscribe(estRet => {
-      this.estados = estRet
+      this.estados = estRet.sort(function(a, b){
+        if (a.nome_estado > b.nome_estado) {
+          return 1;
+        }
+        if (a.nome_estado < b.nome_estado) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     });
 
     this.gradueiService.listarCidades().subscribe(estCity => {
@@ -65,7 +83,16 @@ export class HomeComponent implements OnInit {
 
   aparecer() {
     this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
-      this.cityEst = catRet
+      this.cityEst = catRet.sort(function(a, b){
+        if (a.nome_cidade > b.nome_cidade) {
+          return 1;
+        }
+        if (a.nome_cidade < b.nome_cidade) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     })
   }
   opened = false

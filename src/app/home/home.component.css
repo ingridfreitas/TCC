@@ -102,6 +102,15 @@ img {
     height: 200px;
 }
 
+.drax{
+    display: none;
+}
+
+.ap{
+    display: block;
+}
+
+
 @media(max-width: 600px) and (min-width: 200px) {
 
     .imagens,

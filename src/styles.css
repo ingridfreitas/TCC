@@ -13,7 +13,8 @@
 }
 
 .col-2 {
-    max-width: 100 / 4%;
+    max-width: 100 / 6%;
+    min-width: 100 / 6%;
     padding: 0;
     margin: 0;
     text-align: center;
@@ -92,106 +93,14 @@ p {
     background-color: #fff;
 }
 
-.range {
-    height: 80px;
-    width: 380px;
-    background-color: #fff;
-    padding: 0 65px 0 45px;
-    border-radius: 10px;
-}
 
-.range .sliderValue {
-    position: relative;
-    width: 100%;
-}
-
-.range .sliderValue span {
-    position: absolute;
-    height: 45px;
-    width: 45px;
-    color: #fff;
-    font-weight: 500;
-    top: -40px;
-    transform: translateX(-50%) scale(0);
-    transform-origin: bottom;
-    transition: transform 0.3s ease-in-out;
-    line-height: 55px;
-    z-index: 2;
-}
-
-.range .sliderValue span.show {
-    transform: translateX(-50%) scale(1);
-}
-
-.range .sliderValue span:after {
-    position: absolute;
-    content: "";
-    height: 45px;
-    width: 45px;
-    background-color: #008cff;
-    transform: translateX(-50%) rotate(45deg);
-    border: 3px solid #fff;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    z-index: -1;
-    left: 50%;
-}
-
-.range .field {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.range .field .value {
-    position: absolute;
-    font-size: 18px;
-    font-weight: 600;
-    color: aqua;
-}
-
-.range .field .value.left {
-    left: -22px;
-}
-
-.range .field .value.right {
-    right: -43px;
-}
-
-.range .field input {
-    -webkit-appearance: none;
-    height: 3px;
-    width: 100%;
-    background-color: #ccc;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-}
-
-.range .field input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #008cff;
-    border-radius: 50%;
-    border: 1px solid #008cff;
-    cursor: pointer;
-}
-
-.range .field input::-moz-range-progress {
-    background-color: #008cff;
-}
-
-.range .field input::-webkit-range-progress {
-    background-color: #008cff;
+.ngx-slider .ngx-slider-pointer{
+    background-color: #0df6a9 !important;
 }
 
 @media(max-width: 3000px) and (min-width: 1200px) {
     .cs {
-        min-width: 25%;
+        min-width: 100 / 6%;
     }
     .desc {
         height: 150px;

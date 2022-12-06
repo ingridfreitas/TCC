@@ -1,8 +1,141 @@
-.cardzc{
-    background-color: black;
-    margin-top: 2rem;
+.cont {
+    width: 80%;
+    height: 65vh;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
-    border-radius: 5px;
+    position: relative;
+}
+
+.conteudo {
+    margin-top: 7rem;
+    height: 100%;
+    background-color: #04ad76;
+}
+
+.conteudo-i {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 2rem;
+    height: 11%;
+    background-color: #04ad76;
+}
+
+.infos {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+input,
+.txarea {
+    margin-top: 0.2rem !important;
+    width: 97%;
+    padding: 6px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+.txarea-i {
+    margin-top: 0.2rem !important;
+    width: 97%;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+.inserir {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    width: 40%;
+    height: 10%;
+    border-radius: 10%;
+}
+
+.one{
+    margin-top: 7rem;
+}
+
+.two{
+    margin-top: 5.3rem;
+}
+
+.three{
+    margin-top: 2rem;
+}
+
+.quatro{
+    margin-top: 8rem !important;
+}
+
+.inserir:hover{
+    color: #04ad76;
+    border: solid 2px #04ad76;
+}
+
+textarea{
+    height: 35% !important;
+}
+
+.pt{
+    margin-top: 51px !important;
+}
+.pc{
+    margin-top: 100px !important;
+}
+
+.del{
+    display: block;
+}
+
+.col-maior{
+    width: 30%;
+    padding: 15px;
+}
+
+.col-metade{
+    width: 30%;
+    padding: 15px;
+}
+
+h1{
+    color: #fff;
+    font-family: "blippo", fantasy, serif;
+    letter-spacing: 1px;
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-top: 7px;
+}
+
+span{
+    color: #fff;
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: 15px;
+    border: solid #fff 2px;
+    border-radius: 10%;
+}
+
+span:hover{
+    color: #f00;
+    border: solid #f00 2px;
+    background-color: #fff;
+}
+
+.top{
+    margin-top: -2rem !important;
 }

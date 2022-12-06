@@ -1,1 +1,109 @@
-<p>enter</p>
+<div class="cont">
+    <div class="row">
+        <div class="col-3">
+            <div class="conteudo">
+                <div class="infos">
+                    <h1>Curso</h1>
+                    <form #cursinho="ngForm">
+                        <input type="text" placeholder="Nome do Curso" name="nome_curso" ngModel>
+                        <input type="text" placeholder="Duração em Semestres" name="duracao" ngModel>
+                        <input type="text" placeholder="Upload de Imagem" name="img" ngModel>
+                        <textarea type="text" placeholder="Descrição" name="descricao" class="txarea"
+                            ngModel></textarea>
+                    </form>
+                    <button class="inserir one" (click)="inserirCurso(cursinho.value)">Inserir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="conteudo">
+                <div class="infos">
+                    <h1>Universidade</h1>
+                    <form #univ="ngForm">
+                        <input type="text" placeholder="Nome da Universidade" name="nome_universidade" ngModel>
+                        <input type="text" placeholder="Sigla" name="sigla" ngModel>
+                        <select id="categoria" class="form-control txarea" name="categoria" [(ngModel)]="vf">
+                            <option selected>Categoria</option>
+                            <option value="Pública">Pública</option>
+                            <option value="Privada">Privada</option>
+                        </select>
+                        <input type="text" placeholder="Upload de Imagem" name="img" ngModel>
+                        <input type="text" placeholder="Link" name="link" ngModel>
+                    </form>
+                    <button class="inserir two" (click)="inserirUni(univ.value)">Inserir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="conteudo">
+                <div class="infos">
+                    <h1>Polo</h1>
+                    <input type="text" placeholder="Nome do Polo" name="nome_polo" [(ngModel)]="napo">
+                    <input type="text" placeholder="Latitude" name="latitude" [(ngModel)]="lat">
+                    <input type="text" placeholder="Longitude" name="longitude" [(ngModel)]="lon">
+                    <select id="universidade" class="form-control txarea" [(ngModel)]="u">
+                        <option selected>Universidade</option>
+                        <option *ngFor="let un of unis" [value]="un.nome_universidade">{{un.nome_universidade}}</option>
+                    </select>
+                    <select id="estado" class="form-control txarea" [(ngModel)]="est">
+                        <option selected>Estado</option>
+                        <option *ngFor="let estados of estados">{{estados.nome_estado}}</option>
+                    </select>
+
+                    <select id="cidades" class="form-control txarea" #cici (click)="aparecer()" [(ngModel)]="cid"
+                        name="cidades">
+                        <option selected>{{cid}}</option>
+                        <option *ngFor="let uc of cityEst" [value]="uc.nome_cidade">{{uc.nome_cidade}}</option>
+                    </select>
+                    <button class="inserir three" (click)="ip()">Inserir</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="conteudo">
+                <div class="infos">
+                    <h1>Polo Curso</h1>
+                    <select id="pocur" class="form-control txarea" [(ngModel)]="pou">
+                        <option selected>{{pou}}</option>
+                        <option *ngFor="let uc of polos" [value]="uc.nome_polo">{{uc.nome_polo}}</option>
+                    </select>
+                    <select id="cursos" class="form-control txarea" [(ngModel)]="cs">
+                        <option selected>Curso</option>
+                        <option *ngFor="let c of cursos" [value]="c.nome_curso">{{c.nome_curso}}</option>
+                    </select>
+                    <input type="text" placeholder="Nota do MEC" id="up" [(ngModel)]="mec">
+                    <input type="text" placeholder="Link" id="up" [(ngModel)]="lin">
+                    <button class="inserir quatro" (click)="ipc()">Inserir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cont">
+    <div class="conteudo-i del">
+        <div class="row top">
+            <div class="col-maior">
+                <h1>Delete Polo Curso</h1>
+            </div>
+            <div class="col-metade">
+                <select id="pocur" class="form-control txarea-i" [(ngModel)]="pou">
+                    <option selected>{{pou}}</option>
+                    <option *ngFor="let uc of polos" [value]="uc.nome_polo">{{uc.nome_polo}}</option>
+                </select>
+            </div>
+            <div class="col-metade">
+                <select id="cursos" class="form-control txarea-i" [(ngModel)]="cs" (click)="aparecerCur()">
+                    <option selected>{{cs}}</option>
+                    <option *ngFor="let c of apcursos" [value]="c.cursos.nome_curso">{{c.cursos.nome_curso}}</option>
+                </select>
+            </div>
+            <div class="col-menor">
+                <span class="las la-trash" (click)="deletar()"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,23 +18,17 @@ export class CursosComponent implements OnInit {
 
   ngOnInit(): void {
     this.gradueiService.listarCursos().subscribe(cursosRet => {
-      this.cursos = cursosRet
+      this.cursos = cursosRet.sort(function(a, b){
+        if (a.nome_curso > b.nome_curso) {
+          return 1;
+        }
+        if (a.nome_curso < b.nome_curso) {
+          return -1;
+        }
+        return 0;
+      })
       console.log(this.cursos)
     });
   }
-
-  //toDisplay = false;
-
-  /*abrirInfo() {
-    var flecha = document.querySelector('.gr');
-    if (this.toDisplay = !this.toDisplay) {
-      flecha?.classList.add('flecha')
-    }
-    else {
-      flecha?.classList.remove('flecha')
-      flecha?.classList.add('sflecha')
-
-    }
-  }*/
 
 }

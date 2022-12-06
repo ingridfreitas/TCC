@@ -20,7 +20,7 @@ export class ResultadosComponent implements OnInit {
   kit: string = ''
   otrrhd: string = ''
 
-  value: number = 0;
+  value: number = 12;
   options: Options = {
     floor: 0,
     ceil: 200,
@@ -30,6 +30,7 @@ export class ResultadosComponent implements OnInit {
 
   cursos: Cursos[] = [];
   estados: Estados[] = []
+  nestados: Estados[] = []
   polos: Polos[] = []
   universidades: Universidades[] = [];
   pocur: PolosCursos[] = [];
@@ -53,11 +54,29 @@ export class ResultadosComponent implements OnInit {
 
   ngOnInit(): void {
     this.gradueiService.listarCursos().subscribe(cursosRet => {
-      this.cursos = cursosRet
+      this.cursos = cursosRet.sort(function(a, b){
+        if (a.nome_curso > b.nome_curso) {
+          return 1;
+        }
+        if (a.nome_curso < b.nome_curso) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     });
 
     this.gradueiService.listarEstados().subscribe(estRet => {
-      this.estados = estRet
+      this.estados = estRet.sort(function(a, b){
+        if (a.nome_estado > b.nome_estado) {
+          return 1;
+        }
+        if (a.nome_estado < b.nome_estado) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     });
 
     this.gradueiService.listarPolos().subscribe(catRet => {
@@ -79,74 +98,95 @@ export class ResultadosComponent implements OnInit {
       this.curd = this.otrrhd
 
       if (this.florida != 'Estado') {
-        console.log("sim")
+        console.log("VALORES")
         this.enviar()
       }
 
       if (this.curd != 'Curso') {
-        console.log("sim")
+        console.log("DISTANCIAS")
         this.sla()
       }
     })
+
+    this.value = 15
+    this.curd = 'Curso'
+    this.cur = 'Curso'
+    this.curd = 'Curso'
+    this.vf = 'Categoria';
+    this.est = 'Estado';
+    this.cid = 'Cidade Central';
   }
 
   enviar() {
-
+    this.valores = []
     if (this.est != 'Estado') {
       this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
-        this.cityEst = catRet
-      })
+        this.cityEst = catRet.sort()
 
-      if (this.cur != 'Curso') {
-        this.gradueiService.buscar(this.cur).subscribe(catRet => {
-          this.pocur = catRet
-        })
-      }
+        if (this.cur != 'Curso') {
+          this.gradueiService.buscar(this.cur).subscribe(catRet => {
+            this.pocur = catRet
+            console.log(this.pocur)
+            if (this.cid != 'Cidade Central') {
+              this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
+                var ville = catRet.filter((obj) => {
+                  return obj.nome_cidade === this.cid;
+                });
+                this.city = ville
+                this.gradueiService.buscarPoloCity(this.cid).subscribe(catRet => {
+                  this.polos = catRet
 
-      if (this.cid != 'Cidade Central') {
-        this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
-          var ville = catRet.filter((obj) => {
-            return obj.nome_cidade === this.cid;
-          });
-          this.city = ville
-          this.gradueiService.buscarPoloCity(this.cid).subscribe(catRet => {
-            this.polos = catRet
+                  this.pol = this.pocur.filter((city) => {
+                    return city.polos.cidades.nome_cidade === this.cid;
+                  });
+                  if (this.vf != 'Categoria') {
+                    if (this.vf == 'Ambas') {
+                      this.res = this.pol
+                    }
+                    else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
+                      this.universidades = catRet
 
-            this.pol = this.pocur.filter((city) => {
-              return city.polos.cidades.nome_cidade === this.cid;
-            });
-            if (this.vf != 'Categoria') {
-              if (this.vf == 'Ambas') {
-                this.res = this.pol
-              }
-              else this.gradueiService.buscarCategoria(this.vf).subscribe(catRet => {
-                this.universidades = catRet
-
-                this.res = this.pol.filter((uni) => {
-                  return uni.polos.universidades.categoria === this.vf
+                      this.res = this.pol.filter((uni) => {
+                        return uni.polos.universidades.categoria === this.vf
+                      })
+                    })
+                    if (this.res.length > 0) {
+                      this.ccce = true
+                    }
+                    else {
+                      this.ccce = false
+                    }
+                  }
                 })
-
-                if (this.res.length > 0) {
-                  this.ccce = true
-                }
-                else{
-                  this.ccce = false
-                }
               })
             }
           })
-        })
-      }
+        }
+
+      })
+      console.log(this.est)
+
+
     }
   }
 
   aparecer() {
     this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
-      this.cityEst = catRet
+      this.cityEst = catRet.sort(function (a, b) {
+        if (a.nome_cidade > b.nome_cidade) {
+          return 1;
+        }
+        if (a.nome_cidade < b.nome_cidade) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
     })
   }
 
   sla() {
+    this.res = [];
     this.gradueiService.buscar(this.curd).subscribe(ret => {
       this.pocurd = ret
 
@@ -186,7 +226,7 @@ export class ResultadosComponent implements OnInit {
           if (this.valores.length > 0) {
             this.dist = true
           }
-          else{
+          else {
             this.dist = false
           }
         }

@@ -40,6 +40,8 @@ export class AdminComponent implements OnInit {
   cursos: Cursos[] = []
   apcursos: PolosCursos[] = []
   dcursos: PolosCursos[] = []
+  ecursos: Cursos[] = []
+  epolos: Polos[] = []
   estados: Estados[] = []
   cidades: Cidades[] = [];
   polos: Polos[] = []
@@ -54,7 +56,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.gradueiService.listarEstados().subscribe(estRet => {
-      this.estados = estRet.sort(function(a, b){
+      this.estados = estRet.sort(function (a, b) {
         if (a.nome_estado > b.nome_estado) {
           return 1;
         }
@@ -67,7 +69,7 @@ export class AdminComponent implements OnInit {
     });
 
     this.gradueiService.listarCidades().subscribe(estCity => {
-      this.cidades = estCity.sort(function(a, b){
+      this.cidades = estCity.sort(function (a, b) {
         if (a.nome_cidade > b.nome_cidade) {
           return 1;
         }
@@ -80,7 +82,7 @@ export class AdminComponent implements OnInit {
     });
 
     this.gradueiService.listarPolos().subscribe(ret => {
-      this.polos = ret.sort(function(a, b){
+      this.polos = ret.sort(function (a, b) {
         if (a.nome_polo > b.nome_polo) {
           return 1;
         }
@@ -93,7 +95,7 @@ export class AdminComponent implements OnInit {
     })
 
     this.gradueiService.listarCursos().subscribe(ret => {
-      this.cursos = ret.sort(function(a, b){
+      this.cursos = ret.sort(function (a, b) {
         if (a.nome_curso > b.nome_curso) {
           return 1;
         }
@@ -106,7 +108,7 @@ export class AdminComponent implements OnInit {
     })
 
     this.gradueiService.listarUnis().subscribe(ret => {
-      this.unis = ret.sort(function(a, b){
+      this.unis = ret.sort(function (a, b) {
         if (a.nome_universidade > b.nome_universidade) {
           return 1;
         }
@@ -119,12 +121,13 @@ export class AdminComponent implements OnInit {
     })
 
     this.gradueiService.listarPolosCursos().subscribe(ret => {
-      this.pocur = ret})
+      this.pocur = ret
+    })
   }
 
   aparecer() {
     this.gradueiService.buscarEstado(this.est).subscribe(catRet => {
-      this.cityEst = catRet.sort(function(a, b){
+      this.cityEst = catRet.sort(function (a, b) {
         if (a.nome_cidade > b.nome_cidade) {
           return 1;
         }
@@ -194,9 +197,10 @@ export class AdminComponent implements OnInit {
         this.gradueiService.criarPolo(postPolo).subscribe(ret => {
           console.log(ret)
         })
+        location.reload()
+
       })
     }
-    location.reload()
   }
 
   ipc() {
@@ -264,6 +268,31 @@ export class AdminComponent implements OnInit {
     }
     console.log(alvo)
     this.gradueiService.deletarPoloCurso(alvo).subscribe(() => console.log('Delete successful'));
+    location.reload()
+  }
+
+  deletarC() {
+    for (let i = 0; this.cursos.length > i; i++) {
+      if (this.cursos[i].nome_curso == this.cs) {
+        this.ecursos[i] = this.cursos[i]
+        var alvo = this.ecursos[i].id
+      }
+    }
+    console.log(alvo)
+    this.gradueiService.deletarCurso(alvo).subscribe(() => console.log('Delete successful'));
+    location.reload()
+  }
+
+  deletarP() {
+    for (let i = 0; this.polos.length > i; i++) {
+      if (this.polos[i].nome_polo == this.pou) {
+        this.epolos[i] = this.polos[i]
+        console.log(this.epolos)
+        var alvo = this.epolos[i].id
+      }
+    }
+    console.log(alvo)
+    this.gradueiService.deletarPolo(alvo).subscribe(() => console.log('Delete successful'));
     location.reload()
   }
 

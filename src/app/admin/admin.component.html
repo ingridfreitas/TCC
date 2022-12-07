@@ -106,4 +106,44 @@
             </div>
         </div>
     </div>
+
+    <div class="conteudo-i del">
+        <div class="row top">
+            <div class="col-maior">
+                <h1>Delete Curso</h1>
+            </div>
+            <div class="col-metade">
+                <select id="cursos" class="form-control txarea-i" [(ngModel)]="cs">
+                    <option selected>{{cs}}</option>
+                    <option *ngFor="let c of cursos" [value]="c.nome_curso">{{c.nome_curso}}</option>
+                </select>
+            </div>
+            <div class="col-metade">
+                
+            </div>
+            <div class="col-menor">
+                <span class="las la-trash" (click)="deletarC()"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="conteudo-i del">
+        <div class="row top">
+            <div class="col-maior">
+                <h1>Delete Polo</h1>
+            </div>
+            <div class="col-metade">
+                <select id="pocur" class="form-control txarea-i" [(ngModel)]="pou">
+                    <option selected>{{pou}}</option>
+                    <option *ngFor="let uc of polos" [value]="uc.nome_polo">{{uc.nome_polo}}</option>
+                </select>
+            </div>
+            <div class="col-metade">
+                
+            </div>
+            <div class="col-menor">
+                <span class="las la-trash" (click)="deletarP()"></span>
+            </div>
+        </div>
+    </div>
 </div>

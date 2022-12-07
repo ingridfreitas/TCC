@@ -94,4 +94,12 @@ export class GradueiService {
   deletarPoloCurso(pocur: any){
     return this.http.delete(this.PTCURPO + '/' + pocur)
   }
+
+  deletarCurso(curso: any){
+    return this.http.delete(this.PTCUR + '/' + curso)
+  }
+
+  deletarPolo(polo: any){
+    return this.http.delete(this.PTPOLO + '/' + polo)
+  }
 }
